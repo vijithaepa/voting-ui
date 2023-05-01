@@ -1,0 +1,11 @@
+# specify a base image
+FROM node:alpine
+
+# install some dependancies
+WORKDIR '/server/ui'
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+# set up a default command
+CMD ["npm", "run", "dev"]
