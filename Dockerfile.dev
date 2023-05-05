@@ -8,4 +8,6 @@ RUN npm install
 COPY ./ ./
 
 # set up a default command
+
 CMD ["npm", "run", "dev"]
+

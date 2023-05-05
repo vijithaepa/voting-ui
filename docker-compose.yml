@@ -1,7 +1,7 @@
 version: '3'
 services:
-  backend:
-    image: 'voting-server'
+  server:
+    image: 'my-server-container'
     ports:
       - "8080:8080"
   web:
