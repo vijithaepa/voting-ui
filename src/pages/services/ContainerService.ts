@@ -1,9 +1,9 @@
 
-class ContainerService {
+// class ContainerService {
 
 
-    getUserGreeting = () => {
-
+    export const getUserGreeting = () => {
+        console.log('Service got called');
         return fetch('http://localhost:8080/docker/greeting', {
             method: 'GET',
             // headers: {
@@ -17,6 +17,6 @@ class ContainerService {
         //     return res;
         // })
     }
-}
+// }
 
-export default ContainerService;
+// export default ContainerService;
