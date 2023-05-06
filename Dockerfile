@@ -15,7 +15,9 @@ RUN npm run build
 
 # Second stage
 FROM nginx
-#
+#Elastic beans talk will look for port for expose
+EXPOSE 80
+
 COPY --from=builder /server/ui/build /usr/share/nginx/html
 
 # default start nginx container
