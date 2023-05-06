@@ -10,9 +10,12 @@ COPY ./ ./
 # set up a default command
 RUN npm run build
 
+# set up a default command
+#ENTRYPOINT ["npm","run","start"]
+
 # Second stage
 FROM nginx
-
+#
 COPY --from=builder /server/ui/build /usr/share/nginx/html
 
 # default start nginx container

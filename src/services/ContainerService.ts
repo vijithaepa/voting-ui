@@ -1,5 +1,7 @@
 
-// class ContainerService {
+const ContainerService = () => {
+
+}
 
 
     export const getUserGreeting = () => {
@@ -19,4 +21,4 @@
     }
 // }
 
-// export default ContainerService;
+export default ContainerService;

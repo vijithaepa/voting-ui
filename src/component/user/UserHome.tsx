@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {getUserGreeting} from "@/pages/services/ContainerService";
+import {getUserGreeting} from "../../services/ContainerService";
+
 
 const UserHome = () => {
     const [greeting, setGreeting] = useState('');
     useEffect(() => {
         // let ignore = false;
         setGreeting('')
-        getUserGreeting()
-            .then(res => {
-                // if (!ignore) {
-                    setGreeting(res)
-                // }
-            })
+        // getUserGreeting()
+        //     .then(res => {
+        //         // if (!ignore) {
+        //             setGreeting(res)
+        //         // }
+        //     })
         // return () => {
         //     ignore = true;
         // }
