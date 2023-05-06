@@ -7,12 +7,29 @@ COPY ./package.json ./
 RUN npm install
 COPY ./ ./
 
-# set up a default command
 RUN npm run build
 
-# Second stage
-FROM nginx
+#second stage
+FROM node:alpine as runner
+WORKDIR '/server/ui'
 
-COPY --from=builder /server/ui/build /usr/share/nginx/html
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
 
-# default start nginx container
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# set up a default command
+#RUN npm run build
+
+COPY --from=builder --chown=nextjs:nodejs /server/ui/.next ./.next
+COPY --from=builder /server/ui/node_modules ./node_modules
+COPY --from=builder /server/ui/package.json ./package.json
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT 3000
+
+CMD ["npm", "start"]
