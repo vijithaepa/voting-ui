@@ -1,5 +1,5 @@
 # specify a base image
-FROM node:alpine
+FROM cypress/base
 
 # install some dependancies
 WORKDIR '/server/ui'
