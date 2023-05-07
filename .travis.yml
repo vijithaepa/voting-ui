@@ -7,3 +7,17 @@ before_install:
 
 script:
   - docker run vote-ui npm run cy:run -- --record --key d11e9ed1-e3c8-4081-83cf-ad88bfa4cdbd
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-2"
+  app: "voting-web"
+  env: "voting-web-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-2-909780099032"
+  bucket_path: "voting-web"
+  on:
+    branch: "release"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
