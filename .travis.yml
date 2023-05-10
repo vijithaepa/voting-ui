@@ -11,8 +11,8 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "ap-southeast-2"
-  app: "voting-web"
-  env: "voting-web-env"
+  app: "vote-ui"
+  env: "Vote-ui-env-1"
   bucket_name: "elasticbeanstalk-ap-southeast-2-909780099032"
   bucket_path: "voting-web"
   on:
