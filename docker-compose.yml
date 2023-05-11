@@ -7,7 +7,7 @@ services:
   web:
     restart: unless-stopped   # restart policy
     build:
-      context: .
+      context: /.
       dockerfile: Dockerfile.dev
 #    image: 'front-end-server'
     ports:
