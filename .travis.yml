@@ -2,11 +2,11 @@ sudo: required
 services:
   - docker
 
-#before_install:
-#  - docker build -t vote-ui -f Dockerfile.dev .
-#
-#script:
-#  - docker run vote-ui npm run cy:run -- --record --key d11e9ed1-e3c8-4081-83cf-ad88bfa4cdbd
+before_install:
+  - docker build -t vote-ui -f Dockerfile.dev .
+
+script:
+  - docker run vote-ui npm run cy:run -- --record --key d11e9ed1-e3c8-4081-83cf-ad88bfa4cdbd
 
 deploy:
   provider: elasticbeanstalk
