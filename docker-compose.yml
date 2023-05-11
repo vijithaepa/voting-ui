@@ -1,9 +1,9 @@
 version: '3'
 services:
-  server:
-    image: 'my-server-container'
-    ports:
-      - "8080:8080"
+#  server:
+#    image: 'my-server-container'
+#    ports:
+#      - "8080:8080"
   web:
     restart: unless-stopped   # restart policy
     build:
