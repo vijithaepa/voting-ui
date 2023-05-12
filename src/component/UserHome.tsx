@@ -20,7 +20,7 @@ const UserHome = () => {
 
     return (
         <div>
-            <p>Heading</p>
+            <p>Heading W</p>
             This is what user say : {greeting}
         </div>
     )
