@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: "ap-southeast-2"
   app: "vote-ui"
-  env: "Vote-ui-env-1"
+  env: "Vote-ui-env"
   bucket_name: "elasticbeanstalk-ap-southeast-2-909780099032"
   bucket_path: "voting-web"
   on:
