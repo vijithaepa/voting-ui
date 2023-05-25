@@ -15,7 +15,7 @@ on:
 env:
   applicationfolder: voting-ui
   AWS_REGION: ap-southeast-2
-  S3BUCKET: slnews.info
+  S3BUCKET: slnews.info.s3
 
 permissions:
   contents: read
