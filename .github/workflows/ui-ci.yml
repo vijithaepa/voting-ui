@@ -32,8 +32,8 @@ jobs:
         name: deploy
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
-          role-to-assume: <arn:aws:iam::909780099032:role/GitHubAction-AssumeRoleWithAction> #change to reflect your IAM role’s ARN
-          role-session-name: GitHubAction-AssumeRoleWithAction
+          role-to-assume: arn:aws:iam::909780099032:role/GitHubAction-AssumeRoleWithAction #change to reflect your IAM role’s ARN
+          role-session-name: GitHubAction-AssumeRoleWithActionSession
           aws-region: ${{  env.AWS_REGION }}
       - name: Sts GetCallerIdentity
         run: |
