@@ -30,7 +30,7 @@ jobs:
     steps:
       - id: deploy
         name: deploy
-        uses: aws-actions/configure-aws-credentials@vb8c74de
+        uses: aws-actions/configure-aws-credentials@b8c74de
         with:
           role-to-assume: arn:aws:iam::909780099032:role/GitHubAction-AssumeRoleWithAction #change to reflect your IAM role’s ARN
           role-session-name: GitHubAction-AssumeRoleWithActionSession
