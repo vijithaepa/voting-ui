@@ -30,9 +30,11 @@ jobs:
     steps:
       - id: deploy
         name: deploy
-        uses: bitovi/github-actions-deploy-docker-to-ec2@v0.5.0
+        uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_default_region: ap-southeast-2
-          dot_env: ${{ secrets.DOT_ENV }}
+          role-to-assume: <arn:aws:iam::909780099032:role/GitHubAction-AssumeRoleWithAction> #change to reflect your IAM role’s ARN
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws_default_region: ${{  AWS_REGION }}
+      - name: Sts GetCallerIdentity
+        run: |
+            aws sts get-caller-identity
