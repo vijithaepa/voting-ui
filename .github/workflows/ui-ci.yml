@@ -24,13 +24,16 @@ jobs:
   EC2-deploy:
     name: build and deploy
     runs-on: ubuntu-latest
-    environment:
-      name: ${{github.ref_name}}
-      url: ${{steps.deploy.outputs.vm_url}}
+#    environment:
+#      name: ${{github.ref_name}}
+#      url: ${{steps.deploy.outputs.vm_url}}
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - id: deploy
         name: deploy
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
           role-to-assume: arn:aws:iam::909780099032:role/GitHubAction-AssumeRoleWithAction #change to reflect your IAM role’s ARN
           role-session-name: GitHubAction-AssumeRoleWithActionSession
