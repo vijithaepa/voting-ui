@@ -22,8 +22,8 @@ env:
 #  contents: read
 
 jobs:
-  EC2-deploy:
-    name: build and deploy
+  ECR-deploy:
+    name: build and deploy to ECR
     runs-on: ubuntu-latest
 
     steps:
