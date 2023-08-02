@@ -9,7 +9,7 @@ name: UI CI with node
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "nextjs" ]
 #  pull_request:
 #    branches: [ "release" ]
 env:
