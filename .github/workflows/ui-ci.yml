@@ -9,7 +9,7 @@ name: UI CI with node
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "nextjs" ]
 #  pull_request:
 #    branches: [ "release" ]
 env:
@@ -22,35 +22,47 @@ env:
 #  contents: read
 
 jobs:
-  ECR-deploy:
-    name: build and deploy to ECR
-    runs-on: ubuntu-latest
+  build:
+    name: build with node
+    runs-on: self-hosted
 
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-      - name: Git clone the repository
-        uses: actions/checkout@v3
-
-      - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
-          aws-region: ${{  env.AWS_REGION }}
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-      - name: Build, tag, and push the image to Amazon ECR
-        id: build-image
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          # Build a docker container and push it to ECR 
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          echo "Pushing image to ECR..."
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-      - name: Sts GetCallerIdentity
-        run: |
-            aws sts get-caller-identity
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
+
+
+
+#      - name: configure aws credentials
+#        uses: aws-actions/configure-aws-credentials@v2
+#        with:
+#          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+#          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+#          aws-region: ${{ env.AWS_REGION }}
+#      - name: Login to Amazon ECR
+#        id: login-ecr
+#        uses: aws-actions/amazon-ecr-login@v1
+#      - name: Build, tag, and push the image to Amazon ECR
+#        id: build-image
+#        env:
+#          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#          ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+#          IMAGE_TAG: ${{ github.sha }}
+#        run: |
+#          # Build a docker container and push it to ECR
+#          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+#          echo "Pushing image to ECR..."
+#          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+#          echo "name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+#      - name: Sts GetCallerIdentity
+#        run: |
+#            aws sts get-caller-identity
