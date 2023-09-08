@@ -9,7 +9,7 @@ name: UI CI with node
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "nextjs" ]
 #  pull_request:
 #    branches: [ "release" ]
 env:
@@ -24,7 +24,7 @@ env:
 jobs:
   build:
     name: build with node
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -32,7 +32,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js - ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
