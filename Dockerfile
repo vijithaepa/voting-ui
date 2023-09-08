@@ -11,13 +11,13 @@ COPY ./ ./
 RUN npm run build
 
 # set up a default command
-#ENTRYPOINT ["npm","run","start"]
+ENTRYPOINT ["npm","run","start"]
 
 # Second stage
-FROM nginx
-#Elastic beans talk will look for port for expose
-EXPOSE 80
+#FROM nginx
+##Elastic beans talk will look for port for expose
+#EXPOSE 80
 
-COPY --from=builder /server/ui/build /usr/share/nginx/html
+#COPY --from=builder /server/ui/build /usr/share/nginx/html
 
 # default start nginx container
