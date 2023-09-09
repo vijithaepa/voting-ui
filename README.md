@@ -94,3 +94,11 @@ docker run -p 3000:3000 -v /app/node-module -v $(pwd):/app <image>		(volume buil
 docker-compose up -d (-d run in background)
 docker-compose up --build (build before up)
 docker-compose down
+
+
+EC2:
+sudo apt update
+
+sudo apt install git
+sudo apt install docker.io
+sudo apt install docker-compose

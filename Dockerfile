@@ -10,6 +10,8 @@ COPY ./ ./
 # set up a default command
 RUN npm run build
 
+EXPOSE 3000
+
 # set up a default command
 ENTRYPOINT ["npm","run","start"]
 
