@@ -33,7 +33,7 @@ jobs:
           aws_access_key_id: ${{ secrets.ACCESS_KEY}}
           aws_secret_access_key: ${{ secrets.SECRET_KEY}}
           aws_default_region: ${{ env.AWS_REGION }}
-          domain_name: slnews.info
+#          domain_name: slnews.info
           app_port: 3000
 
 #      - name: configure aws credentials
