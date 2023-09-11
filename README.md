@@ -102,3 +102,5 @@ sudo apt update
 sudo apt install git
 sudo apt install docker.io
 sudo apt install docker-compose
+
+sudo chmod 666 /var/run/docker.sock

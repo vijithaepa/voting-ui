@@ -1,10 +1,10 @@
 name: UI CI/CD
 
 on:
-  push:
-    branches: [ "development" ]
-#  pull_request:
-#    branches: [ "release" ]
+#  push:
+#    branches: [ "development" ]
+  pull_request:
+    branches: [ "release" ]
 env:
 #  applicationfolder: voting-ui
   AWS_REGION: ap-southeast-2

@@ -11,7 +11,7 @@ services:
       dockerfile: Dockerfile
 #    image: 'front-end-server'
     ports:
-      - "3000:3000"
+      - "80:3000"
     volumes:
       - .:/server/ui              # second param: map {current folder} to {/server/ui} in container
       - /server/ui/node_modules   # first param : do not map this inside the container
