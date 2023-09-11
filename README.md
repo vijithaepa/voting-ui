@@ -104,3 +104,4 @@ sudo apt install docker.io
 sudo apt install docker-compose
 
 sudo chmod 666 /var/run/docker.sock
+sudo systemctl restart docker

@@ -6,6 +6,8 @@ services:
 #      - "8080:8080"
   web:
     restart: unless-stopped   # restart policy
+    logging:
+      driver: none
     build:
       context: .
       dockerfile: Dockerfile
