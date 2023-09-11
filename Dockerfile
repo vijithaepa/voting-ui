@@ -1,10 +1,11 @@
 # specify a base image
-FROM node:alpine as builder
+FROM node:slim as builder
 
 # install some dependancies
 WORKDIR '/server/ui'
-COPY ./package.json ./
-RUN npm install
+COPY ./package.json package-lock.json ./
+RUN npm install --no-optional && npm cache clean --force
+ENV PATH '/server/ui/node-modules/.bin:$PATH'
 COPY ./ ./
 
 # set up a default command
