@@ -4,7 +4,8 @@ FROM node:slim as builder
 # install some dependancies
 WORKDIR '/server/ui'
 COPY ./package.json package-lock.json ./
-RUN npm install --no-optional && npm cache clean --force
+USER node
+RUN npm install --verbose
 ENV PATH '/server/ui/node-modules/.bin:$PATH'
 COPY ./ ./
 
