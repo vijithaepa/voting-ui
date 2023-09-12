@@ -1,40 +1,44 @@
-name: UI CI/CD
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: UI CI
 
 on:
-#  push:
-#    branches: [ "development" ]
-  pull_request:
-    branches: [ "release" ]
+  push:
+    branches: [ "development" ]
+#  pull_request:
+#    branches: [ "release" ]
 env:
 #  applicationfolder: voting-ui
   AWS_REGION: ap-southeast-2
 #  S3BUCKET: slnews.info.s3
 
-permissions:
+#permissions:
 #  id-token: write
-  contents: read
+#  contents: read
 
 jobs:
-  EC2-Deploy:
-    name: build and deploy to EC2
-    runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.ref_name }}
-      url: ${{ steps.deploy.outputs.vm_url }}
-#    strategy:
-#      matrix:
-#        node-version: [16.x]
+  build:
+    name: build with node
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-      - id: deploy
-        name: Deploy
-        uses: bitovi/github-actions-deploy-docker-to-ec2@v0.5.0
+      - uses: actions/checkout@v3
+      - name: Use Node.js - ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          aws_access_key_id: ${{ secrets.ACCESS_KEY}}
-          aws_secret_access_key: ${{ secrets.SECRET_KEY}}
-          aws_default_region: ${{ env.AWS_REGION }}
-#          domain_name: slnews.info
-          app_port: 3000
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
 
 #      - name: configure aws credentials
 #        uses: aws-actions/configure-aws-credentials@v2

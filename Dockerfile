@@ -5,7 +5,7 @@ FROM node:slim as builder
 WORKDIR '/server/ui'
 COPY ./package.json package-lock.json ./
 USER node
-RUN npm install --verbose
+RUN npm install
 ENV PATH '/server/ui/node-modules/.bin:$PATH'
 COPY ./ ./
 
