@@ -12,8 +12,13 @@
             console.log('response ', res.body, res.formData())
             return res.text()
         })
+        // .then(res => {
+        //     console.log('Next response ', res)
+        //     return res;
+        // })
         .catch(error => {
             console.log('Error response ', error)
+            return " ERROR";
         })
     }
 // }
