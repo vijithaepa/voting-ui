@@ -69,7 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Docker
+### Docker
 docker create <image>
 docker start -a <containerID> (a: attached  -> print output to console)
 docker start -it <containerID> sh (i: input mode, t: text formatting, sh: run shell)
@@ -96,12 +96,19 @@ docker-compose up --build (build before up)
 docker-compose down
 
 
-EC2:
+### EC2:
 sudo apt update
 
 sudo apt install git
 sudo apt install docker.io
 sudo apt install docker-compose
 
-sudo chmod 666 /var/run/docker.sock
-sudo systemctl restart docker
+### nginx
+/etc/nginx/sites-available/default
+chmod +x <<to_build_folder>>
+sudo service nginx restart
+
+### reffer
+https://www.youtube.com/watch?v=0Kn6mAYIRJU&t=394s
+
+https://github.com/appleboy/ssh-action
