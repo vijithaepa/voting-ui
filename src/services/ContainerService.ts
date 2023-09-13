@@ -4,7 +4,7 @@
 
     export const getUserGreeting = () => {
         console.log('Service got called');
-        return fetch('http://172.31.4.209:8080/docker/greeting', {
+        return fetch('http://0.0.0.0:8080/docker/greeting', {
             method: 'GET',
             // headers: {
             // }
