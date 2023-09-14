@@ -4,7 +4,7 @@
 
     export const getUserGreeting = () => {
         console.log('Service got called');
-        return fetch('http://slnews.info/api/docker/greeting', {
+        return fetch('api/docker/greeting', {
             method: 'GET',
             // headers: {
             // }
