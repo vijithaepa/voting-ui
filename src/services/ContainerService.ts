@@ -9,8 +9,8 @@
             // headers: {
             // }
         }).then(res => {
-            console.log('response ', res.body, res.formData())
-            return res;
+            // console.log('response ', res.body, res.formData())
+            return res.text();
         })
         // .then(res => {
         //     console.log('Next response ', res)

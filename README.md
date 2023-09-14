@@ -108,6 +108,40 @@ sudo chmod 666 /var/run/docker.sock
 /etc/nginx/sites-available/default
 chmod +x <<to_build_folder>>
 sudo service nginx restart
+```
+server {
+listen 80;
+server_name slnews.info;
+
+        location / {
+                root /home/ubuntu/repo/ui/_work/voting-ui/voting-ui/build;
+                try_files $uri /index.html;
+
+                # proxy_pass http://127.0.0.1:3000;
+                # proxy_http_version 1.1;
+                # proxy_set_header Upgrade $http_upgrade;
+                # proxy_set_header Connection "upgrade";
+                # proxy_set_header Host $host;
+                # proxy_cache_bypass $http_upgrade;
+        }
+
+        location /api/ {
+                proxy_pass  http://backend;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_set_header Host $http_host;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header X-Forwarded-Port $server_port;
+                proxy_set_header X-Request-Start $msec;
+        }
+}
+
+upstream backend {
+server 127.0.0.1:8080;
+}
+```
 
 ### reffer
 https://www.youtube.com/watch?v=0Kn6mAYIRJU&t=394s
