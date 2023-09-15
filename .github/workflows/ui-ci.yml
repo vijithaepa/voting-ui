@@ -8,10 +8,10 @@
 name: UI CI
 
 on:
-#  push:
-#    branches: [ "development" ]
-  pull_request:
+  push:
     branches: [ "development" ]
+#  pull_request:
+#    branches: [ "development" ]
 env:
 #  applicationfolder: voting-ui
   AWS_REGION: ap-southeast-2
