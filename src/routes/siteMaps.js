@@ -239,6 +239,11 @@ export const appRoutes = {
           active: true
         },
         {
+          name: 'Member overview',
+          to: '/e-learning/member-overview',
+          active: true
+        },
+        {
           name: 'Trainer profile',
           to: '/e-learning/trainer-profile',
           active: true
