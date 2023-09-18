@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Card, Dropdown, ProgressBar } from 'react-bootstrap';
+import {Card, Dropdown, ProgressBar} from 'react-bootstrap';
 import AdvanceTableWrapper from 'components/common/advance-table/AdvanceTableWrapper';
 import AdvanceTable from 'components/common/advance-table/AdvanceTable';
 import IconButton from 'components/common/IconButton';
@@ -15,7 +15,7 @@ const columns = [
     Header: 'Course Title',
     cellProps: {
       className: 'white-space-nowrap',
-      style: { maxWidth: '23rem' }
+      style: {maxWidth: '23rem'}
     },
     Cell: rowData => (
       <Flex alignItems="center" className="gap-3 position-relative">
@@ -70,7 +70,7 @@ const columns = [
       <ProgressBar
         className="me-3 bg-200 rounded-pill"
         now={rowData.row.original.progress}
-        style={{ width: 80, height: 5 }}
+        style={{width: 80, height: 5}}
       />
     )
   },
@@ -99,7 +99,7 @@ const columns = [
             <Dropdown.Item href="#!">View</Dropdown.Item>
             <Dropdown.Item href="#!">Edit</Dropdown.Item>
             <Dropdown.Item href="#!">Refund</Dropdown.Item>
-            <Dropdown.Divider as="div" />
+            <Dropdown.Divider as="div"/>
             <Dropdown.Item href="#!" className="text-warning">
               Archive
             </Dropdown.Item>
@@ -113,7 +113,7 @@ const columns = [
   }
 ];
 
-const Convictions = ({ tableData, perPage = 6 }) => {
+const Convictions = ({tableData, perPage = 6}) => {
   return (
     <AdvanceTableWrapper
       columns={columns}
@@ -153,7 +153,7 @@ const Convictions = ({ tableData, perPage = 6 }) => {
             }}
           />
         </Card.Body>
-        <FalconCardFooterLink title="Show all enrollments" size="sm" />
+        <FalconCardFooterLink title="Show all enrollments" size="sm"/>
       </Card>
     </AdvanceTableWrapper>
   );
