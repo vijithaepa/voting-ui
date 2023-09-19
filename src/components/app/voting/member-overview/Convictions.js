@@ -12,7 +12,7 @@ import FalconCardFooterLink from 'components/common/FalconCardFooterLink';
 const columns = [
   {
     accessor: 'title',
-    Header: 'Course Title',
+    Header: 'Case Title',
     cellProps: {
       className: 'white-space-nowrap',
       style: { maxWidth: '23rem' }
