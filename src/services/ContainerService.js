@@ -4,7 +4,7 @@ export const getUserGreeting = () => {
   console.log('Service got called');
   return (
     fetch(
-      'http://ec2-13-55-114-165.ap-southeast-2.compute.amazonaws.com/api/docker/greeting',
+      'https://ec2-13-55-114-165.ap-southeast-2.compute.amazonaws.com/api/docker/greeting',
       {
         method: 'GET'
         // headers: {
