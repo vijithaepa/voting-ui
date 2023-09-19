@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
+import { getUserGreeting } from '../../../../services/ContainerService';
 
 const PageHeader = () => {
+  const [greeting, setGreeting] = useState('');
+  useEffect(() => {
+    // let ignore = false;
+    setGreeting('');
+    getUserGreeting().then(res => {
+      // if (!ignore) {
+      setGreeting(res);
+      // }
+    });
+    // return () => {
+    //     ignore = true;
+    // }
+  }, []);
+
   return (
     <Card className="mb-3">
       <Card.Body className="d-flex gap-2 flex-wrap flex-between-center">
         <div>
           <h6 className="text-primary">Learner</h6>
-          <h5 className="mb-0">Michael Giacchino</h5>
+          <h5 className="mb-0">Michael Giacchino {greeting}</h5>
         </div>
         <div>
           <IconButton

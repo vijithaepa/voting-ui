@@ -105,6 +105,7 @@ sudo apt install docker-compose
 sudo chmod 666 /var/run/docker.sock
 
 ### nginx
+sudo apt install nginx
 /etc/nginx/sites-available/default
 chmod +x <<to_build_folder>>
 sudo service nginx restart
