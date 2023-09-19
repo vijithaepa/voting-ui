@@ -83,7 +83,7 @@ const NegativeRatings = ({ data }) => {
   return (
     <Card className="font-sans-serif">
       <Card.Header className="pb-0">
-        <h6 className="mb-0">Negative  Ratings</h6>
+        <h6 className="mb-0">Negative Ratings</h6>
       </Card.Header>
 
       <Card.Body
