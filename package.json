@@ -1,6 +1,6 @@
 {
   "homepage": "http://vijithaepa.github.io/voting-ui",
-  "name": "falcon-react",
+  "name": "voting-app",
   "version": "4.2.0",
   "private": true,
   "dependencies": {
