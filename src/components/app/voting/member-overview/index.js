@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import {
   assignmentScores,
-  courseStatusData,
   payments,
   spendingsData,
   timeOnSiteData,
@@ -17,8 +16,6 @@ import PoliticalHistory from './PoliticalHistory';
 import RatingHistory from './RatingHistory';
 import Qualifications from './Qualifications';
 import VotingHistory from './VotingHistory';
-import CourseStatus from './CourseStatus';
-import BillingAddress from './BillingAddress';
 import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
 
