@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Nav } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
 import { getUserGreeting } from '../../../../services/ContainerService';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {Link} from "react-router-dom";
 
 const PageHeader = () => {
   const [greeting, setGreeting] = useState('');
@@ -40,7 +38,7 @@ const PageHeader = () => {
             iconClassName="me-sm-2"
             // size="sm"
             className="rounded-pill me-1 mb-1"
-            icon='arrow-left'
+            icon="arrow-left"
             variant="falcon-default"
             iconAlign="left"
           >
