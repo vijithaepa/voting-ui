@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Nav } from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
 import { getUserGreeting } from '../../../../services/ContainerService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Link} from "react-router-dom";
 
 const PageHeader = () => {
   const [greeting, setGreeting] = useState('');
@@ -13,9 +15,6 @@ const PageHeader = () => {
       setGreeting(res);
       // }
     });
-    // return () => {
-    //     ignore = true;
-    // }
   }, []);
 
   return (
@@ -33,15 +32,45 @@ const PageHeader = () => {
             iconClassName="me-sm-1"
             className="me-2"
           >
-            <span className="d-none d-sm-inline-block">Message</span>
+            <span className="d-none d-sm-inline-block">Feedback</span>
+          </IconButton>
+        </div>
+        <div>
+          <IconButton
+            iconClassName="me-sm-2"
+            // size="sm"
+            className="rounded-pill me-1 mb-1"
+            icon='arrow-left'
+            variant="falcon-default"
+            iconAlign="left"
+          >
+            First
           </IconButton>
           <IconButton
+            className="rounded-pill me-1 mb-1"
             variant="falcon-default"
-            size="md"
-            icon="users"
-            iconClassName="me-sm-1"
+            icon="angle-left"
+            transform="shrink-2"
           >
-            <span className="d-none d-sm-inline-block">Followers</span>
+            Prev
+          </IconButton>
+          <IconButton
+            className="rounded-pill me-1 mb-1"
+            variant="falcon-default"
+            icon="angle-right"
+            iconAlign="right"
+            transform="shrink-3"
+          >
+            Next
+          </IconButton>
+          <IconButton
+            className="rounded-pill me-1 mb-1"
+            variant="falcon-default"
+            icon="arrow-right"
+            iconAlign="right"
+            transform="shrink-3"
+          >
+            Last
           </IconButton>
         </div>
       </Card.Body>
