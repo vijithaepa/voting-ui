@@ -239,6 +239,32 @@ export const appRoutes = {
           active: true
         },
         {
+          name: 'Members',
+          active: true,
+          children: [
+            {
+              name: 'Members list',
+              to: '/e-learning/member/member-list',
+              active: true
+            },
+            {
+              name: 'Member grid',
+              to: '/e-learning/member/member-grid',
+              active: true
+            },
+            // {
+            //   name: 'Member details',
+            //   to: '/e-learning/member/member-details',
+            //   active: true
+            // },
+            {
+              name: 'Create a member',
+              to: '/e-learning/member/create-a-member',
+              active: true
+            }
+          ]
+        },
+        {
           name: 'Member overview',
           to: '/e-learning/member-overview',
           active: true
