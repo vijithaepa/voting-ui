@@ -60,6 +60,39 @@ export const dashboardRoutes = {
     }
   ]
 };
+export const memberRoutes = {
+  label: 'Members',
+  labelDisable: true,
+  children: [
+    {
+      name: 'Members',
+      active: true,
+      icon: 'chart-pie',
+      children: [
+        {
+          name: 'List',
+          to: '/e-learning/member/member-list',
+          exact: true,
+          active: true
+        },
+        {
+          name: 'Overview',
+          to: '/e-learning/member/member-details',
+          active: true
+        },
+        {
+          name: 'New',
+          to: '/e-learning/course/create-a-course',
+          active: true,
+          badge: {
+            type: 'success',
+            text: 'New'
+          }
+        }
+      ]
+    }
+  ]
+};
 export const appRoutes = {
   label: 'app',
   children: [
@@ -236,37 +269,6 @@ export const appRoutes = {
         {
           name: 'Student overview',
           to: '/e-learning/student-overview',
-          active: true
-        },
-        {
-          name: 'Members',
-          active: true,
-          children: [
-            {
-              name: 'Members list',
-              to: '/e-learning/member/member-list',
-              active: true
-            },
-            {
-              name: 'Member grid',
-              to: '/e-learning/member/member-grid',
-              active: true
-            },
-            // {
-            //   name: 'Member details',
-            //   to: '/e-learning/member/member-details',
-            //   active: true
-            // },
-            {
-              name: 'Create a member',
-              to: '/e-learning/member/create-a-member',
-              active: true
-            }
-          ]
-        },
-        {
-          name: 'Member overview',
-          to: '/e-learning/member-overview',
           active: true
         },
         {
@@ -1338,6 +1340,7 @@ export const documentationRoutes = {
 
 export default [
   dashboardRoutes,
+  memberRoutes,
   appRoutes,
   pagesRoutes,
   modulesRoutes,
