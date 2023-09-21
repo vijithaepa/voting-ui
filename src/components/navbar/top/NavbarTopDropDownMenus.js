@@ -5,7 +5,8 @@ import {
   appRoutes,
   pagesRoutes,
   modulesRoutes,
-  documentationRoutes
+  documentationRoutes,
+  memberRoutes
 } from 'routes/siteMaps';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -44,7 +45,19 @@ const NavbarTopDropDownMenus = () => {
           </Dropdown.Item>
         ))}
       </NavbarDropdown>
-
+      <NavbarDropdown title="members">
+        {memberRoutes.children[0].children.map(route => (
+          <Dropdown.Item
+            key={route.name}
+            as={Link}
+            className={route.active ? 'link-600' : 'text-500'}
+            to={route.to}
+            onClick={handleDropdownItemClick}
+          >
+            {route.name}
+          </Dropdown.Item>
+        ))}
+      </NavbarDropdown>
       <NavbarDropdown title="app">
         <NavbarDropdownApp items={appRoutes.children} />
       </NavbarDropdown>

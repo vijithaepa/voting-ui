@@ -196,8 +196,8 @@ import QuickLinks from 'components/app/support-desk/quick-links/QuickLinks';
 import Reports from 'components/app/support-desk/reports/Reports';
 import InputMaskExample from 'components/doc-components/InputMaskExample';
 import RangeSlider from 'components/doc-components/RangeSlider';
-import MemberOverview from '../components/app/voting/member-overview';
-import Members from '../components/app/voting/members/Members';
+import MemberOverview from '../components/voting/member-overview';
+import Members from '../components/voting/members/Members';
 
 const FalconRoutes = () => {
   return (
@@ -358,8 +358,8 @@ const FalconRoutes = () => {
           path="e-learning/student-overview"
           element={<StudentOverview />}
         />
-        <Route path="e-learning/member/:courseLayout" element={<Members />} />
-        <Route path="e-learning/member-overview" element={<MemberOverview />} />
+        <Route path="voting/member/:courseLayout" element={<Members />} />
+        <Route path="voting/member-overview" element={<MemberOverview />} />
 
         {/*icons*/}
         <Route path="icons/font-awesome" element={<FontAwesome />} />
