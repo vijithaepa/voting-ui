@@ -71,13 +71,13 @@ export const memberRoutes = {
       children: [
         {
           name: 'List',
-          to: '/e-learning/member/member-list',
+          to: '/voting/member/member-list',
           exact: true,
           active: true
         },
         {
           name: 'Overview',
-          to: '/e-learning/member-overview',
+          to: '/voting/member-overview',
           active: true
         },
         {

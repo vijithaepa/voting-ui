@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
-import { getUserGreeting } from '../../../../services/ContainerService';
+import { getUserGreeting } from '../../../services/ContainerService';
 
 const PageHeader = () => {
   const [greeting, setGreeting] = useState('');
