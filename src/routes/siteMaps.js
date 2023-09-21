@@ -77,7 +77,7 @@ export const memberRoutes = {
         },
         {
           name: 'Overview',
-          to: '/e-learning/member/member-details',
+          to: '/e-learning/member-overview',
           active: true
         },
         {
