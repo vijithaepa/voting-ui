@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import {
-  assignmentScores,
   payments,
   spendingsData,
   timeOnSiteData,
@@ -18,6 +17,7 @@ import Qualifications from './Qualifications';
 import VotingHistory from './VotingHistory';
 import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
+import {politicalHistory} from "../../../data/elearning/MemberOverview";
 
 const MemberOverview = () => {
   return (
@@ -38,7 +38,7 @@ const MemberOverview = () => {
           </Row>
         </Col>
         <Col xxl={6}>
-          <PoliticalHistory scoresData={assignmentScores} />
+          <PoliticalHistory history={politicalHistory} />
         </Col>
       </Row>
 
