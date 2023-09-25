@@ -34,7 +34,7 @@ const data = [
   { value: 2, name: '0-40%' }
 ];
 
-const getOptions = () => ({
+const getOptions = (data) => ({
   color: [
     getColor('success'),
     getColor('primary'),
@@ -64,7 +64,7 @@ const getOptions = () => ({
         borderColor: getColor('gray-100')
       },
       label: {
-        show: false
+        show: true
       },
       emphasis: {
         scale: false
@@ -75,7 +75,16 @@ const getOptions = () => ({
   ]
 });
 
-const PoliticalHistory = ({ scoresData }) => {
+const PoliticalHistory = ({ history }) => {
+
+  const getData = () => {
+    const dataSet = history.map(h => {
+      return { value: h.noOfYears, name: h.period };
+    })
+    console.log('Data set ', dataSet);
+    return dataSet;
+  }
+
   return (
     <Card className="h-100 font-sans-serif">
       <FalconCardHeader
@@ -84,45 +93,39 @@ const PoliticalHistory = ({ scoresData }) => {
         titleTag="h6"
         className="py-2"
         endEl={
-          <FalconLink title="Individual results" className="px-0 fw-medium" />
+          <FalconLink title="Individual results" className="px-0 fw-medium disabled" />
         }
       />
       <Card.Body>
         <Row className="g-0 h-100">
-          <Col sm={7} className="order-1 order-sm-0">
+          <Col sm={8} className="order-1 order-sm-0">
             <Row className="g-sm-0 gy-4 row-cols-2 h-100 align-content-between">
-              {scoresData.map(item => (
+              {history.map(item => (
                 <Col key={item.id}>
                   <Flex className="mb-3 gap-2">
+                    {/*TODO: to have the party color*/}
                     <div className={`vr rounded ps-1 bg-${item.color}`} />
-                    <h6 className="lh-base text-700 mb-0">{item.range}</h6>
+                    <h6 className="lh-base text-700 mb-0">{item.period}
+                      {item.id === 0 &&
+                          <SoftBadge
+                              bg={item.badge.type}
+                              pill
+                              className="d-none d-md-inline-block ms-2"
+                          >- present
+                          </SoftBadge>
+                      }
+                    </h6>
                   </Flex>
-                  <h5 className="fw-normal">{item.courses} Courses</h5>
-                  <h6 className="mb-0">
-                    <span className="text-500 me-2">this week</span>
-                    <SoftBadge
-                      bg={item.badge.type}
-                      pill
-                      className="d-none d-md-inline-block ms-2"
-                    >
-                      {item.badge.icon && (
-                        <FontAwesomeIcon
-                          icon={item.badge.icon}
-                          className="ms-1"
-                        />
-                      )}
-                      {item.badge.content}
-                    </SoftBadge>
-                  </h6>
+                  <h5 className="fw-normal">{item.title}</h5>
                 </Col>
               ))}
             </Row>
           </Col>
-          <Col sm={5}>
+          <Col sm={4}>
             <ReactEChartsCore
               echarts={echarts}
-              option={getOptions()}
-              style={{ height: 200 }}
+              option={getOptions(getData())}
+              style={{ height: 160 }}
             />
           </Col>
         </Row>

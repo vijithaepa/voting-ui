@@ -9,33 +9,34 @@ export const spendingsData = [85, 60, 120, 70, 100, 15, 65, 80, 60, 75, 45];
 
 export const timeOnSiteData = [55, 60, 40, 120, 70, 80, 35, 80, 85];
 
-export const assignmentScores = [
+export const politicalHistory = [
   {
     id: 0,
-    range: '90-100%',
-    courses: 10,
+    noOfYears: 12,
+    period: '2010',
+    title: 'Member of Parliament',
     color: 'success',
     badge: {
       type: 'success',
-      content: '2.1%',
       icon: 'caret-up'
     }
   },
   {
     id: 1,
-    range: '70-90%',
-    courses: 16,
+    noOfYears: 10,
+    period: '2000-2010',
+    title: 'Member of Council',
     color: 'primary',
     badge: {
       type: 'danger',
-      content: '5.1%',
       icon: 'caret-down'
     }
   },
   {
     id: 2,
-    range: '40-70%',
-    courses: 12,
+    noOfYears: 7,
+    period: '1992-1999',
+    title: 'NGO - Urban Development',
     color: 'info',
     badge: {
       type: 'secondary',
@@ -44,12 +45,12 @@ export const assignmentScores = [
   },
   {
     id: 3,
-    range: '0-40%',
-    courses: 2,
+    noOfYears: 1,
+    period: '1990-1991',
+    title: 'Social worker',
     color: 'warning',
     badge: {
       type: 'primary',
-      content: '3.5%',
       icon: 'plus'
     }
   }
