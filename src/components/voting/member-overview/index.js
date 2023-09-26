@@ -8,14 +8,13 @@ import NegativeRatings from './NegativeRatings';
 import PoliticalHistory from './PoliticalHistory';
 import RatingHistory from './RatingHistory';
 import Qualifications from './Qualifications';
-import VotingHistory from './VotingHistory';
 import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
 import {politicalHistory} from "../../../data/elearning/MemberOverview";
 import {memberOverview} from "data/voting/member/memberOverview";
 
 const MemberOverview = () => {
-  const {info, voting} = memberOverview;
+  const {info, voting, ratingHistory} = memberOverview;
 
   return (
     <>
@@ -51,7 +50,7 @@ const MemberOverview = () => {
         </Col>
       </Row>
 
-      <RatingHistory/>
+      <RatingHistory ratingHistory={ratingHistory}/>
 
       <Convictions tableData={enrolledCoursesData}/>
     </>

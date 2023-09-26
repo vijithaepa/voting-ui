@@ -44,39 +44,14 @@ const tooltipFormatter = params => `
         .join('<br />')}
     </div>`;
 
-const getOptions = () => ({
+const getOptions = (ratingHistory) => ({
   color: getColor('gray-100'),
   legend: {
     show: false
   },
   xAxis: {
     type: 'category',
-    data: [
-      '2020-01-01',
-      '2020-02-01',
-      '2020-03-01',
-      '2020-04-01',
-      '2020-05-01',
-      '2020-06-01',
-      '2020-07-01',
-      '2020-08-01',
-      '2020-09-01',
-      '2020-10-01',
-      '2020-11-01',
-      '2020-12-01',
-      '2021-01-01',
-      '2021-02-01',
-      '2021-03-01',
-      '2021-04-01',
-      '2021-05-01',
-      '2021-06-01',
-      '2021-07-01',
-      '2021-08-01',
-      '2021-09-01',
-      '2021-10-01',
-      '2021-11-01',
-      '2021-12-01'
-    ],
+    data: ratingHistory.dates,
     axisLine: {
       show: false
     },
@@ -97,7 +72,14 @@ const getOptions = () => ({
   },
   yAxis: {
     type: 'value',
-    show: false
+    show: true,
+    axisLabel: {
+      formatter: value => value,
+      color: getColor('gray-600')
+    },
+    axisLine: {
+      show: false
+    },
   },
   tooltip: {
     trigger: 'axis',
@@ -116,23 +98,20 @@ const getOptions = () => ({
   },
   series: [
     {
-      name: 'Total',
+      name: 'Positive',
       type: 'bar',
       barWidth: '50%',
-      z: -1,
-      data: [
-        600, 832, 901, 934, 1290, 1330, 1320, 1250, 1190, 1345, 1009, 1320, 600,
-        832, 901, 934, 1290, 1330, 1320, 1250, 1190, 1345, 1009, 1320
-      ],
+      // z: -1,
+      data: ratingHistory.positive,
       itemStyle: {
-        color: rgbaColor(getColor('primary'), 0.1),
+        color: rgbaColor(getColor('info'), 0.99),
         borderRadius: [5, 5, 0, 0],
         borderWidth: 1,
         borderColor: getColor('gray-300')
       },
       emphasis: {
         itemStyle: {
-          color: rgbaColor(getColor('info'), 0.15),
+          color: rgbaColor(getColor('info'), 0.75),
           borderRadius: [5, 5, 0, 0],
           borderWidth: 1,
           borderColor: getColor('gray-300')
@@ -140,31 +119,28 @@ const getOptions = () => ({
       }
     },
     {
-      name: 'Paid',
+      name: 'Negative',
       type: 'bar',
       barWidth: '50%',
-      barGap: '-100%',
-      data: [
-        320, 420, 800, 100, 1000, 930, 720, 1020, 800, 320, 450, 150, 320, 420,
-        800, 100, 1000, 930, 720, 1020, 800, 320, 450, 150
-      ],
+      barGap: '-30%',
+      data: ratingHistory.negative,
       itemStyle: {
         borderRadius: [5, 5, 0, 0],
-        color: getColor('primary'),
+        color: rgbaColor(getColor('warning'), 0.75),
         borderWidth: 1,
-        borderColor: getColor('primary')
+        borderColor: rgbaColor(getColor('danger'), 0.15),
       }
     }
   ],
   grid: {
     right: '0px',
-    left: '0px',
+    left: '3%',
     bottom: '10%',
     top: '15%'
   }
 });
 
-const RatingHistory = () => {
+const RatingHistory = ({ratingHistory}) => {
   const chartRef = useRef(null);
 
   const handleLegendToggle = (event, name) => {
@@ -184,7 +160,7 @@ const RatingHistory = () => {
         <ReactEChartsCore
           ref={chartRef}
           echarts={echarts}
-          option={getOptions()}
+          option={getOptions(ratingHistory)}
           style={{ minHeight: '21.875rem', width: '100%' }}
         />
       </Card.Body>
@@ -196,7 +172,7 @@ const RatingHistory = () => {
                 variant="text"
                 size="sm"
                 className="d-flex align-items-center p-0 shadow-none"
-                onClick={event => handleLegendToggle(event, 'Total')}
+                onClick={event => handleLegendToggle(event, 'Positive')}
               >
                 <FontAwesomeIcon
                   icon="circle"
@@ -209,7 +185,7 @@ const RatingHistory = () => {
                 variant="text"
                 size="sm"
                 className="d-flex align-items-center p-0 shadow-none ms-2"
-                onClick={event => handleLegendToggle(event, 'Paid')}
+                onClick={event => handleLegendToggle(event, 'Negative')}
               >
                 <FontAwesomeIcon
                   icon="circle"
@@ -224,7 +200,7 @@ const RatingHistory = () => {
             <FalconLink
               to="/e-learning/course/course-grid"
               title="All Rating"
-              className="px-0 fw-medium"
+              className="px-0 fw-medium disabled"
             />
           </Col>
         </Row>
