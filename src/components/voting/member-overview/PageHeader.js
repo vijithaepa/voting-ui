@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import {Card, Pagination} from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
 import { getUserGreeting } from '../../../services/ContainerService';
 
-const PageHeader = () => {
+const PageHeader = ({info}) => {
   const [greeting, setGreeting] = useState('');
   useEffect(() => {
     // let ignore = false;
@@ -19,56 +19,30 @@ const PageHeader = () => {
     <Card className="mb-3">
       <Card.Body className="d-flex gap-2 flex-wrap flex-between-center">
         <div>
-          <h6 className="text-primary">Learner</h6>
-          <h5 className="mb-0">Michael Giacchino {greeting}</h5>
+          <h6 className="text-primary">{info.title}</h6>
+          <h5 className="mb-0">{info.name} {greeting}</h5>
         </div>
+        <Pagination className="pt-3">
+          <Pagination.First />
+          <Pagination.Prev />
+          <Pagination.Item>1</Pagination.Item>
+          <Pagination.Item active>2</Pagination.Item>
+          <Pagination.Item>3</Pagination.Item>
+          <Pagination.Item>4</Pagination.Item>
+          <Pagination.Ellipsis />
+          <Pagination.Item>10</Pagination.Item>
+          <Pagination.Next />
+          <Pagination.Last />
+        </Pagination>
         <div>
           <IconButton
             variant="primary"
-            size="md"
+            size="sm"
             icon="envelope"
             iconClassName="me-sm-1"
             className="me-2"
           >
             <span className="d-none d-sm-inline-block">Feedback</span>
-          </IconButton>
-        </div>
-        <div>
-          <IconButton
-            iconClassName="me-sm-2"
-            // size="sm"
-            className="rounded-pill me-1 mb-1"
-            icon="arrow-left"
-            variant="falcon-default"
-            iconAlign="left"
-          >
-            First
-          </IconButton>
-          <IconButton
-            className="rounded-pill me-1 mb-1"
-            variant="falcon-default"
-            icon="angle-left"
-            transform="shrink-2"
-          >
-            Prev
-          </IconButton>
-          <IconButton
-            className="rounded-pill me-1 mb-1"
-            variant="falcon-default"
-            icon="angle-right"
-            iconAlign="right"
-            transform="shrink-3"
-          >
-            Next
-          </IconButton>
-          <IconButton
-            className="rounded-pill me-1 mb-1"
-            variant="falcon-default"
-            icon="arrow-right"
-            iconAlign="right"
-            transform="shrink-3"
-          >
-            Last
           </IconButton>
         </div>
       </Card.Body>

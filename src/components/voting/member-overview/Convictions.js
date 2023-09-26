@@ -8,6 +8,7 @@ import IconButton from 'components/common/IconButton';
 import Flex from 'components/common/Flex';
 import CardDropdown from 'components/common/CardDropdown';
 import FalconCardFooterLink from 'components/common/FalconCardFooterLink';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const columns = [
   {
@@ -19,15 +20,9 @@ const columns = [
     },
     Cell: rowData => (
       <Flex alignItems="center" className="gap-3 position-relative">
-        <img
-          className="rounded-1 border border-200"
-          src={rowData.row.original.image}
-          width={60}
-          alt={rowData.row.original.title}
-        />
         <Link
           className="text-truncate stretched-link"
-          to="/e-learning/course/course-details"
+          to="/member/member-details"
         >
           {rowData.row.original.title}
         </Link>
@@ -35,55 +30,39 @@ const columns = [
     )
   },
   {
-    accessor: 'trainer',
-    Header: 'Trainer',
+    accessor: 'incidentDate',
+    Header: 'Incident Date',
     headerProps: {
       className: 'fw-medium'
     },
-    Cell: rowData => (
-      <Link className="text-800" to="/e-learning/trainer-profile">
-        {rowData.row.original.trainer}
-      </Link>
-    )
   },
   {
-    accessor: 'enrollmentDate',
-    Header: 'Enrollment',
+    accessor: 'publishedDate',
+    Header: 'Published Date',
     headerProps: {
       className: 'fw-medium'
     }
   },
   {
-    accessor: 'worked',
-    Header: 'Worked',
+    accessor: 'source',
+    Header: 'Source',
     headerProps: {
       className: 'fw-medium'
     }
   },
   {
-    accessor: 'progress',
-    Header: 'Progress',
+    accessor: 'credibility',
+    Header: 'Credibility',
     headerProps: {
       className: 'fw-medium'
     },
     Cell: rowData => (
       <ProgressBar
         className="me-3 bg-200 rounded-pill"
-        now={rowData.row.original.progress}
+        now={rowData.row.original.credibility}
         style={{ width: 80, height: 5 }}
       />
     )
-  },
-  {
-    accessor: 'price',
-    Header: 'Price',
-    headerProps: {
-      className: 'fw-medium text-end'
-    },
-    cellProps: {
-      className: 'text-end'
-    },
-    Cell: rowData => `${rowData.row.original.price}`
   },
   {
     accessor: 'none',
@@ -94,20 +73,8 @@ const columns = [
     },
     Cell: () => {
       return (
-        <CardDropdown drop="start">
-          <div className="py-2">
-            <Dropdown.Item href="#!">View</Dropdown.Item>
-            <Dropdown.Item href="#!">Edit</Dropdown.Item>
-            <Dropdown.Item href="#!">Refund</Dropdown.Item>
-            <Dropdown.Divider as="div" />
-            <Dropdown.Item href="#!" className="text-warning">
-              Archive
-            </Dropdown.Item>
-            <Dropdown.Item href="#!" className="text-danger">
-              Delete
-            </Dropdown.Item>
-          </div>
-        </CardDropdown>
+        <FontAwesomeIcon icon="download" className="ms-1" />
+
       );
     }
   }
@@ -153,7 +120,7 @@ const Convictions = ({ tableData, perPage = 6 }) => {
             }}
           />
         </Card.Body>
-        <FalconCardFooterLink title="Show all enrollments" size="sm" />
+        <FalconCardFooterLink title="Show all enrollments" size="sm" className="disabled"/>
       </Card>
     </AdvanceTableWrapper>
   );

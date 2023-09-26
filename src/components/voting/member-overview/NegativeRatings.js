@@ -15,6 +15,7 @@ import {
 import { CanvasRenderer } from 'echarts/renderers';
 import BasicECharts from 'components/common/BasicEChart';
 import SoftBadge from 'components/common/SoftBadge';
+import PositiveRatings from "./PositiveRatings";
 
 echarts.use([
   TitleComponent,
@@ -80,6 +81,7 @@ const getOptions = data => ({
 });
 
 const NegativeRatings = ({ data }) => {
+  const {votes, rate, total, diff} = data;
   return (
     <Card className="font-sans-serif">
       <Card.Header className="pb-0">
@@ -93,17 +95,17 @@ const NegativeRatings = ({ data }) => {
         className="pt-0"
       >
         <div>
-          <h4 className="text-700 lh-1 mb-1">121h 11m</h4>
-          <SoftBadge bg="success" pill className="fs--2">
-            <FontAwesomeIcon icon="caret-down" className="me-1" />
-            3.6% last month
+          <h5 className="text-700 lh-1 mb-1">{rate} / {total} voters</h5>
+          <SoftBadge bg={diff >0? "danger": "success"} pill className="fs--2">
+            <FontAwesomeIcon icon={diff >0? "caret-up": "caret-down"} className="me-1" />
+            {Math.abs(diff)}% last month
           </SoftBadge>
         </div>
         <div className="ps-0">
           <BasicECharts
             echarts={echarts}
-            options={getOptions(data)}
-            style={{ width: '8.5rem', height: 70 }}
+            options={getOptions(votes)}
+            style={{ width: '11.5rem', height: 60 }}
           />
         </div>
       </Card.Body>
@@ -111,6 +113,13 @@ const NegativeRatings = ({ data }) => {
   );
 };
 
-NegativeRatings.propTypes = { data: PropTypes.array.isRequired };
+PositiveRatings.propTypes = {
+  data: {
+    votes: PropTypes.array.isRequired,
+    total: PropTypes.number,
+    rate: PropTypes.number,
+    diff: PropTypes.number
+  }
+};
 
 export default NegativeRatings;
