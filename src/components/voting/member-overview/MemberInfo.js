@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import student from 'assets/img/e-learning/avatar/student.png';
 import CardDropdown from 'components/common/CardDropdown';
 import SoftBadge from 'components/common/SoftBadge';
+import PropTypes from "prop-types";
 
-const MemberInfo = () => {
+const MemberInfo = ({info}) => {
+  const {lastUpdate, age, phoneNo, email, image} = info;
   return (
     <Card className="font-sans-serif">
       <Card.Body className="d-flex gap-3 flex-column flex-sm-row align-items-center">
@@ -14,22 +16,22 @@ const MemberInfo = () => {
           fluid
           width={112}
           className="rounded-3"
-          src={student}
+          src={image}
           alt="student profile image"
         />
         <Table borderless className="fs--1 fw-medium mb-0">
           <tbody>
             <tr>
               <td className="p-1" style={{ width: '35%' }}>
-                Last Online:
+                Last Updated:
               </td>
-              <td className="p-1 text-600">3 hours ago</td>
+              <td className="p-1 text-600">{lastUpdate}</td>
             </tr>
             <tr>
               <td className="p-1" style={{ width: '35%' }}>
-                Joined:
+                Age:
               </td>
-              <td className="p-1 text-600">2021/01/12 23:13</td>
+              <td className="p-1 text-600">{age}</td>
             </tr>
             <tr>
               <td className="p-1" style={{ width: '35%' }}>
@@ -37,7 +39,7 @@ const MemberInfo = () => {
               </td>
               <td className="p-1">
                 <Link to="mailto:goodguy@nicemail.com" className="text-600">
-                  goodguy@nicemail.com
+                  {email}
                 </Link>
                 <SoftBadge
                   bg="success"
@@ -55,7 +57,7 @@ const MemberInfo = () => {
               </td>
               <td className="p-1">
                 <Link to="tel:+01234567890" className="text-600">
-                  +012-345-67890
+                  {phoneNo}
                 </Link>
                 <SoftBadge
                   bg="primary"
@@ -86,4 +88,10 @@ const MemberInfo = () => {
   );
 };
 
+MemberInfo.propTypes = {
+    age: PropTypes.number,
+    email: PropTypes.string,
+    phoneNo: PropTypes.string,
+    image: PropTypes.object
+};
 export default MemberInfo;

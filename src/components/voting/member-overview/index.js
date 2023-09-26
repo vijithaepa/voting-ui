@@ -1,12 +1,6 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import {
-  payments,
-  spendingsData,
-  timeOnSiteData,
-  recentActivities,
-  enrolledCoursesData
-} from 'data/elearning/studentOverview';
+import {Col, Row} from 'react-bootstrap';
+import {enrolledCoursesData, payments, recentActivities} from 'data/elearning/studentOverview';
 import PageHeader from './PageHeader';
 import PositiveRatings from './PositiveRatings';
 import MemberInfo from './MemberInfo';
@@ -18,45 +12,48 @@ import VotingHistory from './VotingHistory';
 import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
 import {politicalHistory} from "../../../data/elearning/MemberOverview";
+import {memberOverview} from "data/voting/member/memberOverview";
 
 const MemberOverview = () => {
+  const {info, voting} = memberOverview;
+
   return (
     <>
-      <PageHeader />
+      <PageHeader info={info}/>
       <Row className="g-3 mb-3">
         <Col xxl={6}>
           <Row className="g-3">
             <Col xs={12}>
-              <MemberInfo />
+              <MemberInfo info={info}/>
             </Col>
             <Col md={6}>
-              <PositiveRatings data={spendingsData} />
+              <PositiveRatings data={voting.positive}/>
             </Col>
             <Col md={6}>
-              <NegativeRatings data={timeOnSiteData} />
+              <NegativeRatings data={voting.negative}/>
             </Col>
           </Row>
         </Col>
         <Col xxl={6}>
-          <PoliticalHistory history={politicalHistory} />
+          <PoliticalHistory history={politicalHistory}/>
         </Col>
       </Row>
 
       <Row className="g-3 mb-3">
         <Col xxl={3} lg={5}>
-          <Qualifications />
+          <Qualifications/>
         </Col>
-        <Col xxl={6} className="order-xxl-1 order-lg-2 order-1">
-          <VotingHistory tableData={payments} />
-        </Col>
+        {/*<Col xxl={6} className="order-xxl-1 order-lg-2 order-1">*/}
+        {/*  <VotingHistory tableData={payments}/>*/}
+        {/*</Col>*/}
         <Col md={6} lg={7} xxl={3} className="order-2 order-lg-1 order-xxl-2">
-          <RecentActivities data={recentActivities} />
+          <RecentActivities data={recentActivities}/>
         </Col>
       </Row>
 
-      <RatingHistory />
+      <RatingHistory/>
 
-      <Convictions tableData={enrolledCoursesData} />
+      <Convictions tableData={enrolledCoursesData}/>
     </>
   );
 };

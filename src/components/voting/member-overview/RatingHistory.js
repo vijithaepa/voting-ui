@@ -203,7 +203,7 @@ const RatingHistory = () => {
                   className="text-info fs--2 me-1"
                   transform="shrink-3"
                 />
-                <small className="text-600">Rating History</small>
+                <small className="text-600">Positive</small>
               </Button>
               <Button
                 variant="text"
@@ -216,14 +216,14 @@ const RatingHistory = () => {
                   className="text-primary fs--2 me-1"
                   transform="shrink-3"
                 />
-                <small className="text-600">Paid Course Browsed</small>
+                <small className="text-600">Negative</small>
               </Button>
             </Flex>
           </Col>
           <Col xs="auto">
             <FalconLink
               to="/e-learning/course/course-grid"
-              title="All Courses"
+              title="All Rating"
               className="px-0 fw-medium"
             />
           </Col>
