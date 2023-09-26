@@ -10,11 +10,11 @@ import RatingHistory from './RatingHistory';
 import Qualifications from './Qualifications';
 import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
-import {politicalHistory} from "../../../data/elearning/MemberOverview";
 import {memberOverview} from "data/voting/member/memberOverview";
+import VotingHistory from "./VotingHistory";
 
 const MemberOverview = () => {
-  const {info, voting, ratingHistory} = memberOverview;
+  const {info, voting, ratingHistory, convictions, politicalHistory} = memberOverview;
 
   return (
     <>
@@ -38,21 +38,21 @@ const MemberOverview = () => {
         </Col>
       </Row>
 
-      <Row className="g-3 mb-3">
-        <Col xxl={3} lg={5}>
-          <Qualifications/>
-        </Col>
-        {/*<Col xxl={6} className="order-xxl-1 order-lg-2 order-1">*/}
-        {/*  <VotingHistory tableData={payments}/>*/}
-        {/*</Col>*/}
-        <Col md={6} lg={7} xxl={3} className="order-2 order-lg-1 order-xxl-2">
-          <RecentActivities data={recentActivities}/>
-        </Col>
-      </Row>
+      {/*<Row className="g-3 mb-3">*/}
+      {/*  <Col xxl={3} lg={5}>*/}
+      {/*    <Qualifications/>*/}
+      {/*  </Col>*/}
+      {/*  <Col xxl={6} className="order-xxl-1 order-lg-2 order-1">*/}
+      {/*    <VotingHistory tableData={payments}/>*/}
+      {/*  </Col>*/}
+      {/*  <Col md={6} lg={7} xxl={3} className="order-2 order-lg-1 order-xxl-2">*/}
+      {/*    <RecentActivities data={recentActivities}/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
 
       <RatingHistory ratingHistory={ratingHistory}/>
 
-      <Convictions tableData={enrolledCoursesData}/>
+      <Convictions tableData={convictions}/>
     </>
   );
 };
