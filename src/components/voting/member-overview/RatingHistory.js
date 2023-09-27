@@ -160,7 +160,7 @@ const RatingHistory = ({ ratingHistory }) => {
         <ReactEChartsCore
           ref={chartRef}
           echarts={echarts}
-          option={getOptions({ ratingHistory })}
+          option={getOptions(ratingHistory)}
           style={{ minHeight: '21.875rem', width: '100%' }}
         />
       </Card.Body>
