@@ -44,7 +44,7 @@ const tooltipFormatter = params => `
         .join('<br />')}
     </div>`;
 
-const getOptions = (ratingHistory) => ({
+const getOptions = ratingHistory => ({
   color: getColor('gray-100'),
   legend: {
     show: false
@@ -79,7 +79,7 @@ const getOptions = (ratingHistory) => ({
     },
     axisLine: {
       show: false
-    },
+    }
   },
   tooltip: {
     trigger: 'axis',
@@ -128,7 +128,7 @@ const getOptions = (ratingHistory) => ({
         borderRadius: [5, 5, 0, 0],
         color: rgbaColor(getColor('warning'), 0.75),
         borderWidth: 1,
-        borderColor: rgbaColor(getColor('danger'), 0.15),
+        borderColor: rgbaColor(getColor('danger'), 0.15)
       }
     }
   ],
@@ -140,7 +140,7 @@ const getOptions = (ratingHistory) => ({
   }
 });
 
-const RatingHistory = ({ratingHistory}) => {
+const RatingHistory = ({ ratingHistory }) => {
   const chartRef = useRef(null);
 
   const handleLegendToggle = (event, name) => {

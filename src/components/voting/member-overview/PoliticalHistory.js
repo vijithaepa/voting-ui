@@ -34,7 +34,7 @@ const data = [
   { value: 2, name: '0-40%' }
 ];
 
-const getOptions = (data) => ({
+const getOptions = data => ({
   color: [
     getColor('success'),
     getColor('primary'),
@@ -76,14 +76,13 @@ const getOptions = (data) => ({
 });
 
 const PoliticalHistory = ({ history }) => {
-
   const getData = () => {
     const dataSet = history.map(h => {
       return { value: h.noOfYears, name: h.period };
-    })
+    });
     console.log('Data set ', dataSet);
     return dataSet;
-  }
+  };
 
   return (
     <Card className="h-100 font-sans-serif">
@@ -93,7 +92,10 @@ const PoliticalHistory = ({ history }) => {
         titleTag="h6"
         className="py-2"
         endEl={
-          <FalconLink title="Individual results" className="px-0 fw-medium disabled" />
+          <FalconLink
+            title="Individual results"
+            className="px-0 fw-medium disabled"
+          />
         }
       />
       <Card.Body>
@@ -105,15 +107,17 @@ const PoliticalHistory = ({ history }) => {
                   <Flex className="mb-3 gap-2">
                     {/*TODO: to have the party color*/}
                     <div className={`vr rounded ps-1 bg-${item.color}`} />
-                    <h6 className="lh-base text-700 mb-0">{item.period}
-                      {item.id === 0 &&
-                          <SoftBadge
-                              bg={item.badge.type}
-                              pill
-                              className="d-none d-md-inline-block ms-2"
-                          >- present
-                          </SoftBadge>
-                      }
+                    <h6 className="lh-base text-700 mb-0">
+                      {item.period}
+                      {item.id === 0 && (
+                        <SoftBadge
+                          bg={item.badge.type}
+                          pill
+                          className="d-none d-md-inline-block ms-2"
+                        >
+                          - present
+                        </SoftBadge>
+                      )}
                     </h6>
                   </Flex>
                   <h5 className="fw-normal">{item.title}</h5>

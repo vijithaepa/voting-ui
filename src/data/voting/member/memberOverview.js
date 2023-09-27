@@ -1,10 +1,10 @@
-import student from "../../../assets/img/e-learning/avatar/student.png";
-import course3 from "../../../assets/img/e-learning/courses/course3.png";
-import course8 from "../../../assets/img/e-learning/courses/course8.png";
-import course1 from "../../../assets/img/e-learning/courses/course1.png";
-import course5 from "../../../assets/img/e-learning/courses/course5.png";
-import course7 from "../../../assets/img/e-learning/courses/course7.png";
-import course2 from "../../../assets/img/e-learning/courses/course2.png";
+import student from '../../../assets/img/e-learning/avatar/student.png';
+import course3 from '../../../assets/img/e-learning/courses/course3.png';
+import course8 from '../../../assets/img/e-learning/courses/course8.png';
+import course1 from '../../../assets/img/e-learning/courses/course1.png';
+import course5 from '../../../assets/img/e-learning/courses/course5.png';
+import course7 from '../../../assets/img/e-learning/courses/course7.png';
+import course2 from '../../../assets/img/e-learning/courses/course2.png';
 
 export const memberOverview = {
   info: {
@@ -104,12 +104,12 @@ export const memberOverview = {
       '2021-12-01'
     ],
     positive: [
-      6.6, 8.2, 9.1, 9.3, 9.2, 8.3, 7.6, 6.6, 6.8, 5.2, 5.3, 6.3,
-      6.8, 8.2, 9.1, 9.3, 7.2, 6.8, 5.6, 4.2, 3.8, 3.2, 3.3, 2.7
+      6.6, 8.2, 9.1, 9.3, 9.2, 8.3, 7.6, 6.6, 6.8, 5.2, 5.3, 6.3, 6.8, 8.2, 9.1,
+      9.3, 7.2, 6.8, 5.6, 4.2, 3.8, 3.2, 3.3, 2.7
     ],
     negative: [
-      1.1, 1.3, 1.4, 2.1, 2.3, 3.4, 4.2, 4.5, 4.0, 4.3, 4.2, 5.2,
-      5.1, 4.9, 4.7, 4.8, 4.2, 3.8, 3.7, 2.1, 2.3, 2.1, 2.1, 1.6
+      1.1, 1.3, 1.4, 2.1, 2.3, 3.4, 4.2, 4.5, 4.0, 4.3, 4.2, 5.2, 5.1, 4.9, 4.7,
+      4.8, 4.2, 3.8, 3.7, 2.1, 2.3, 2.1, 2.1, 1.6
     ]
   },
   convictions: [
@@ -118,42 +118,42 @@ export const memberOverview = {
       incidentDate: '01/10/21',
       publishedDate: '01/10/21',
       source: 'e-news',
-      credibility: 75,
+      credibility: 75
     },
     {
       title: 'Character Design Masterclass: Your First Superhero',
       incidentDate: '01/10/21',
       publishedDate: '01/10/21',
       source: 'e-news',
-      credibility: 60,
+      credibility: 60
     },
     {
       title: 'Script Writing Masterclass: Introdution to Industry Cliches',
       incidentDate: '01/10/21',
       publishedDate: '01/10/21',
       source: 'e-news',
-      credibility: 55,
+      credibility: 55
     },
     {
       title: 'Abstract Painting: Zero to Mastery in Traditional Medium',
       incidentDate: '01/10/21',
       publishedDate: '03/09/21',
       source: 'e-news',
-      credibility: 85,
+      credibility: 85
     },
     {
       title: 'Character Design Masterclass: Your First Supervillain',
       incidentDate: '01/10/21',
       publishedDate: '01/10/21',
       source: 'e-news',
-      credibility: 25,
+      credibility: 25
     },
     {
       title: 'Composition in Comics: Easy to Read Between Panels',
       incidentDate: '01/10/21',
       publishedDate: '31/12/21',
       source: 'e-news',
-      credibility: 15,
+      credibility: 15
     }
   ]
-}
+};

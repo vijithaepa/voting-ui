@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import student from 'assets/img/e-learning/avatar/student.png';
 import CardDropdown from 'components/common/CardDropdown';
 import SoftBadge from 'components/common/SoftBadge';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-const MemberInfo = ({info}) => {
-  const {lastUpdate, age, phoneNo, email, image} = info;
+const MemberInfo = ({ info }) => {
+  const { lastUpdate, age, phoneNo, email, image } = info;
   return (
     <Card className="font-sans-serif">
       <Card.Body className="d-flex gap-3 flex-column flex-sm-row align-items-center">
@@ -89,9 +89,9 @@ const MemberInfo = ({info}) => {
 };
 
 MemberInfo.propTypes = {
-    age: PropTypes.number,
-    email: PropTypes.string,
-    phoneNo: PropTypes.string,
-    image: PropTypes.object
+  age: PropTypes.number,
+  email: PropTypes.string,
+  phoneNo: PropTypes.string,
+  image: PropTypes.object
 };
 export default MemberInfo;
