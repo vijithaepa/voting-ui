@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Card, Dropdown, ProgressBar } from 'react-bootstrap';
+import { Card, ProgressBar } from 'react-bootstrap';
 import AdvanceTableWrapper from 'components/common/advance-table/AdvanceTableWrapper';
 import AdvanceTable from 'components/common/advance-table/AdvanceTable';
 import IconButton from 'components/common/IconButton';
 import Flex from 'components/common/Flex';
-import CardDropdown from 'components/common/CardDropdown';
 import FalconCardFooterLink from 'components/common/FalconCardFooterLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -128,16 +127,7 @@ const Convictions = ({ tableData, perPage = 6 }) => {
 };
 
 Convictions.propTypes = {
-  tableData: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      trainer: PropTypes.string.isRequired,
-      enrollmentDate: PropTypes.string.isRequired,
-      worked: PropTypes.string.isRequired,
-      progress: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired
-    })
-  ).isRequired,
+  tableData: PropTypes.arrayOf(PropTypes.object).isRequired,
   perPage: PropTypes.number
 };
 

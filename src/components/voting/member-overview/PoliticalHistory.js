@@ -16,7 +16,6 @@ import { getColor } from 'helpers/utils';
 import FalconLink from 'components/common/FalconLink';
 import Flex from 'components/common/Flex';
 import SoftBadge from 'components/common/SoftBadge';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 echarts.use([
   TitleComponent,
@@ -26,13 +25,6 @@ echarts.use([
   CanvasRenderer,
   LegendComponent
 ]);
-
-const data = [
-  { value: 12, name: '90-100%' },
-  { value: 16, name: '70-90%' },
-  { value: 12, name: '40-70%' },
-  { value: 2, name: '0-40%' }
-];
 
 const getOptions = data => ({
   color: [
@@ -139,7 +131,7 @@ const PoliticalHistory = ({ history }) => {
 };
 
 PoliticalHistory.propTypes = {
-  scoresData: PropTypes.arrayOf(PropTypes.object).isRequired
+  history: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default PoliticalHistory;

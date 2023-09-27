@@ -209,12 +209,6 @@ const RatingHistory = ({ ratingHistory }) => {
   );
 };
 
-// RatingHistory.propTypes = {
-//   dates: PropTypes.array,
-//   positive: PropTypes.array,
-//   negative: PropTypes.array
-// };
-
 RatingHistory.propTypes = {
   ratingHistory: PropTypes.shape({
     dates: PropTypes.array,

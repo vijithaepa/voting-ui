@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Dropdown, Image, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import student from 'assets/img/e-learning/avatar/student.png';
 import CardDropdown from 'components/common/CardDropdown';
 import SoftBadge from 'components/common/SoftBadge';
 import PropTypes from 'prop-types';
@@ -89,9 +88,12 @@ const MemberInfo = ({ info }) => {
 };
 
 MemberInfo.propTypes = {
-  age: PropTypes.number,
-  email: PropTypes.string,
-  phoneNo: PropTypes.string,
-  image: PropTypes.object
+  info: PropTypes.shape({
+    lastUpdate: PropTypes.string,
+    age: PropTypes.number,
+    phoneNo: PropTypes.string,
+    email: PropTypes.string,
+    image: PropTypes.string
+  })
 };
 export default MemberInfo;
