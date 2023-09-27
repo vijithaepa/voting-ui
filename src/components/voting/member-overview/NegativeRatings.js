@@ -122,7 +122,7 @@ const NegativeRatings = ({ data }) => {
   );
 };
 
-PositiveRatings.propTypes = {
+NegativeRatings.propTypes = {
   data: {
     votes: PropTypes.array.isRequired,
     total: PropTypes.number,
