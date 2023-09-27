@@ -15,7 +15,6 @@ import {
 import { CanvasRenderer } from 'echarts/renderers';
 import BasicECharts from 'components/common/BasicEChart';
 import SoftBadge from 'components/common/SoftBadge';
-import PositiveRatings from './PositiveRatings';
 
 echarts.use([
   TitleComponent,
