@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {Card, Pagination} from 'react-bootstrap';
+import { Card, Pagination } from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
 import { getUserGreeting } from '../../../services/ContainerService';
 
-const PageHeader = ({info}) => {
+const PageHeader = ({ info }) => {
   const [greeting, setGreeting] = useState('');
   useEffect(() => {
     // let ignore = false;
@@ -20,7 +20,9 @@ const PageHeader = ({info}) => {
       <Card.Body className="d-flex gap-2 flex-wrap flex-between-center">
         <div>
           <h6 className="text-primary">{info.title}</h6>
-          <h5 className="mb-0">{info.name} {greeting}</h5>
+          <h5 className="mb-0">
+            {info.name} {greeting}
+          </h5>
         </div>
         <Pagination className="pt-3">
           <Pagination.First />

@@ -8,7 +8,7 @@ import IconButton from 'components/common/IconButton';
 import Flex from 'components/common/Flex';
 import CardDropdown from 'components/common/CardDropdown';
 import FalconCardFooterLink from 'components/common/FalconCardFooterLink';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const columns = [
   {
@@ -34,7 +34,7 @@ const columns = [
     Header: 'Incident Date',
     headerProps: {
       className: 'fw-medium'
-    },
+    }
   },
   {
     accessor: 'publishedDate',
@@ -72,10 +72,7 @@ const columns = [
       className: 'text-end'
     },
     Cell: () => {
-      return (
-        <FontAwesomeIcon icon="download" className="ms-1" />
-
-      );
+      return <FontAwesomeIcon icon="download" className="ms-1" />;
     }
   }
 ];
@@ -120,7 +117,11 @@ const Convictions = ({ tableData, perPage = 6 }) => {
             }}
           />
         </Card.Body>
-        <FalconCardFooterLink title="Show all enrollments" size="sm" className="disabled"/>
+        <FalconCardFooterLink
+          title="Show all enrollments"
+          size="sm"
+          className="disabled"
+        />
       </Card>
     </AdvanceTableWrapper>
   );

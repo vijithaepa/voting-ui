@@ -1,6 +1,10 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap';
-import {enrolledCoursesData, payments, recentActivities} from 'data/elearning/studentOverview';
+import { Col, Row } from 'react-bootstrap';
+import {
+  enrolledCoursesData,
+  payments,
+  recentActivities
+} from 'data/elearning/studentOverview';
 import PageHeader from './PageHeader';
 import PositiveRatings from './PositiveRatings';
 import MemberInfo from './MemberInfo';
@@ -10,31 +14,32 @@ import RatingHistory from './RatingHistory';
 import Qualifications from './Qualifications';
 import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
-import {memberOverview} from "data/voting/member/memberOverview";
-import VotingHistory from "./VotingHistory";
+import { memberOverview } from 'data/voting/member/memberOverview';
+import VotingHistory from './VotingHistory';
 
 const MemberOverview = () => {
-  const {info, voting, ratingHistory, convictions, politicalHistory} = memberOverview;
+  const { info, voting, ratingHistory, convictions, politicalHistory } =
+    memberOverview;
 
   return (
     <>
-      <PageHeader info={info}/>
+      <PageHeader info={info} />
       <Row className="g-3 mb-3">
         <Col xxl={6}>
           <Row className="g-3">
             <Col xs={12}>
-              <MemberInfo info={info}/>
+              <MemberInfo info={info} />
             </Col>
             <Col md={6}>
-              <PositiveRatings data={voting.positive}/>
+              <PositiveRatings data={voting.positive} />
             </Col>
             <Col md={6}>
-              <NegativeRatings data={voting.negative}/>
+              <NegativeRatings data={voting.negative} />
             </Col>
           </Row>
         </Col>
         <Col xxl={6}>
-          <PoliticalHistory history={politicalHistory}/>
+          <PoliticalHistory history={politicalHistory} />
         </Col>
       </Row>
 
@@ -50,9 +55,9 @@ const MemberOverview = () => {
       {/*  </Col>*/}
       {/*</Row>*/}
 
-      <RatingHistory ratingHistory={ratingHistory}/>
+      <RatingHistory ratingHistory={ratingHistory} />
 
-      <Convictions tableData={convictions}/>
+      <Convictions tableData={convictions} />
     </>
   );
 };

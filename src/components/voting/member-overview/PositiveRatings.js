@@ -82,7 +82,7 @@ const getOptions = data => ({
 });
 
 const PositiveRatings = ({ data }) => {
-   const {votes, rate, total, diff} = data;
+  const { votes, rate, total, diff } = data;
   return (
     <Card className="font-sans-serif">
       <Card.Header className="pb-0">
@@ -96,9 +96,18 @@ const PositiveRatings = ({ data }) => {
         className="pt-0"
       >
         <div>
-          <h5 className="text-700 lh-1 mb-1">{rate} / {total} voters</h5>
-          <SoftBadge bg={diff >0? "success": "danger"} pill className="fs--2">
-            <FontAwesomeIcon icon={diff >0? "caret-up": "caret-down"} className="me-1" />
+          <h5 className="text-700 lh-1 mb-1">
+            {rate} / {total} voters
+          </h5>
+          <SoftBadge
+            bg={diff > 0 ? 'success' : 'danger'}
+            pill
+            className="fs--2"
+          >
+            <FontAwesomeIcon
+              icon={diff > 0 ? 'caret-up' : 'caret-down'}
+              className="me-1"
+            />
             {Math.abs(diff)}% last month
           </SoftBadge>
         </div>
