@@ -160,7 +160,7 @@ const RatingHistory = ({ ratingHistory }) => {
         <ReactEChartsCore
           ref={chartRef}
           echarts={echarts}
-          option={getOptions(ratingHistory)}
+          option={getOptions({ ratingHistory })}
           style={{ minHeight: '21.875rem', width: '100%' }}
         />
       </Card.Body>
@@ -209,10 +209,17 @@ const RatingHistory = ({ ratingHistory }) => {
   );
 };
 
+// RatingHistory.propTypes = {
+//   dates: PropTypes.array,
+//   positive: PropTypes.array,
+//   negative: PropTypes.array
+// };
+
 RatingHistory.propTypes = {
-  data: PropTypes.shape({
-    onSaleCourse: PropTypes.array,
-    regularPaidCourse: PropTypes.array
+  ratingHistory: PropTypes.shape({
+    dates: PropTypes.array,
+    positive: PropTypes.array,
+    negative: PropTypes.array
   })
 };
 

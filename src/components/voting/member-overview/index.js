@@ -1,21 +1,13 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import {
-  enrolledCoursesData,
-  payments,
-  recentActivities
-} from 'data/elearning/studentOverview';
 import PageHeader from './PageHeader';
 import PositiveRatings from './PositiveRatings';
 import MemberInfo from './MemberInfo';
 import NegativeRatings from './NegativeRatings';
 import PoliticalHistory from './PoliticalHistory';
 import RatingHistory from './RatingHistory';
-import Qualifications from './Qualifications';
-import RecentActivities from './RecentActivities';
 import Convictions from './Convictions';
 import { memberOverview } from 'data/voting/member/memberOverview';
-import VotingHistory from './VotingHistory';
 
 const MemberOverview = () => {
   const { info, voting, ratingHistory, convictions, politicalHistory } =

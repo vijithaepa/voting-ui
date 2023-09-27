@@ -1,10 +1,4 @@
 import student from '../../../assets/img/e-learning/avatar/student.png';
-import course3 from '../../../assets/img/e-learning/courses/course3.png';
-import course8 from '../../../assets/img/e-learning/courses/course8.png';
-import course1 from '../../../assets/img/e-learning/courses/course1.png';
-import course5 from '../../../assets/img/e-learning/courses/course5.png';
-import course7 from '../../../assets/img/e-learning/courses/course7.png';
-import course2 from '../../../assets/img/e-learning/courses/course2.png';
 
 export const memberOverview = {
   info: {
