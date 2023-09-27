@@ -210,9 +210,10 @@ const RatingHistory = ({ ratingHistory }) => {
 };
 
 RatingHistory.propTypes = {
-  data: PropTypes.shape({
-    onSaleCourse: PropTypes.array,
-    regularPaidCourse: PropTypes.array
+  ratingHistory: PropTypes.shape({
+    dates: PropTypes.array,
+    positive: PropTypes.array,
+    negative: PropTypes.array
   })
 };
 

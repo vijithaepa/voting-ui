@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Pagination } from 'react-bootstrap';
 import IconButton from 'components/common/IconButton';
 import { getUserGreeting } from '../../../services/ContainerService';
+import PropTypes from 'prop-types';
 
 const PageHeader = ({ info }) => {
   const [greeting, setGreeting] = useState('');
@@ -50,6 +51,13 @@ const PageHeader = ({ info }) => {
       </Card.Body>
     </Card>
   );
+};
+
+PageHeader.propTypes = {
+  info: PropTypes.shape({
+    title: PropTypes.string,
+    name: PropTypes.string
+  })
 };
 
 export default PageHeader;
