@@ -106,6 +106,87 @@ export const memberOverview = {
       4.8, 4.2, 3.8, 3.7, 2.1, 2.3, 2.1, 2.1, 1.6
     ]
   },
+  educationHistory: [
+    {
+      qualification: 'Master in Physics',
+      institute: 'Deaden Uni',
+      date: '01/03/22',
+      status: 'Pending',
+      color: 'warning'
+    },
+    {
+      qualification: 'Bsc in Microbiology',
+      institute: 'Monash Uni',
+      date: '01/10/21',
+      status: 'Successful',
+      color: 'success'
+    },
+    {
+      qualification: 'GCE A/L',
+      institute: 'School',
+      date: '01/10/18',
+      status: 'Failed',
+      color: 'danger'
+    },
+    {
+      qualification: 'Diploma in Computer Engineering',
+      institute: 'ACS',
+      date: '01/10/19',
+      status: 'Successful',
+      color: 'success'
+    },
+    {
+      qualification: 'Diploma in Computer Engineering',
+      institute: 'ACS',
+      date: '01/10/19',
+      status: 'Successful',
+      color: 'success'
+    },
+    {
+      qualification: 'Diploma in Computer Engineering',
+      institute: 'ACS',
+      date: '01/10/19',
+      status: 'Successful',
+      color: 'success'
+    }
+  ],
+  recentActivities: [
+    {
+      id: 0,
+      title: 'Lost the seat',
+      description: 'On parliamentary election',
+      date: '01/10/19',
+      icon: 'sign-out-alt'
+    },
+    {
+      id: 1,
+      title: 'Appointed a ministry',
+      description: 'Appointed as Environment minister',
+      time: '21/02/19',
+      icon: 'shopping-cart'
+    },
+    {
+      id: 2,
+      title: 'Elected to the parliament',
+      description: 'On parliamentary election, with 1300 votes',
+      time: '10/09/15',
+      icon: 'download'
+    },
+    {
+      id: 3,
+      title: 'Sent a direct mail to Tra_bil37a8',
+      description: 'Tra_bil37a8 is trainer of course#121212 ',
+      time: '5h ago',
+      icon: 'envelope'
+    },
+    {
+      id: 4,
+      title: 'Submitted assignment no.3',
+      description: 'Assignment of course#121212 was due yesterday.',
+      time: '5h ago',
+      icon: 'file-upload'
+    }
+  ],
   convictions: [
     {
       title: 'Advanced Design Tools for Modern Designs',

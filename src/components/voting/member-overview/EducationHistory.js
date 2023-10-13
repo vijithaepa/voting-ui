@@ -3,44 +3,27 @@ import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import AdvanceTableWrapper from 'components/common/advance-table/AdvanceTableWrapper';
 import AdvanceTable from 'components/common/advance-table/AdvanceTable';
-import { Link } from 'react-router-dom';
 import AdvanceTableFooter from 'components/common/advance-table/AdvanceTableFooter';
 import IconButton from 'components/common/IconButton';
 
 const columns = [
   {
-    accessor: 'courseId',
-    Header: 'Course',
-    Cell: rowData => (
-      <Link to="#!" className="text-primary fw-semi-bold">
-        Course#{rowData.row.original.courseId}
-      </Link>
-    )
+    accessor: 'qualification',
+    Header: 'Qualification'
   },
   {
-    accessor: 'invoice',
-    Header: 'Invoice no.',
+    accessor: 'institute',
+    Header: 'Institution',
     headerProps: {
       className: 'fw-medium'
     },
     cellProps: {
       className: 'pe-6 py-3'
-    },
-    Cell: rowData => `#${rowData.row.original.invoice}`
-  },
-  {
-    accessor: 'date',
-    Header: 'Date',
-    headerProps: {
-      className: 'text-end fw-medium'
-    },
-    cellProps: {
-      className: 'text-end py-3'
     }
   },
   {
-    accessor: 'amount',
-    Header: 'Amount',
+    accessor: 'date',
+    Header: 'Start Date',
     headerProps: {
       className: 'text-end fw-medium'
     },
@@ -50,7 +33,7 @@ const columns = [
   },
   {
     accessor: 'status',
-    Header: 'Payment Status',
+    Header: 'Status',
     headerProps: {
       className: 'text-end fw-medium'
     },
@@ -65,7 +48,8 @@ const columns = [
   }
 ];
 
-const VotingHistory = ({ tableData, perPage = 5 }) => {
+const EducationHistory = ({ tableData, perPage = 5 }) => {
+  console.log('Education history ', tableData);
   return (
     <AdvanceTableWrapper
       columns={columns}
@@ -121,12 +105,11 @@ const VotingHistory = ({ tableData, perPage = 5 }) => {
   );
 };
 
-VotingHistory.propTypes = {
+EducationHistory.propTypes = {
   tableData: PropTypes.arrayOf(
     PropTypes.shape({
-      courseId: PropTypes.string.isRequired,
-      invoice: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
+      qualification: PropTypes.string.isRequired,
+      institute: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       status: PropTypes.string.isRequired,
       color: PropTypes.string.isRequired
@@ -135,4 +118,4 @@ VotingHistory.propTypes = {
   perPage: PropTypes.number
 };
 
-export default VotingHistory;
+export default EducationHistory;

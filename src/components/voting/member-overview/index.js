@@ -8,16 +8,19 @@ import PoliticalHistory from './PoliticalHistory';
 import RatingHistory from './RatingHistory';
 import Convictions from './Convictions';
 import { memberOverview } from 'data/voting/member/memberOverview';
-import VotingHistory from './VotingHistory';
+import EducationHistory from './EducationHistory';
 import RecentActivities from './RecentActivities';
-import {
-  payments,
-  recentActivities
-} from '../../../data/elearning/studentOverview';
 
 const MemberOverview = () => {
-  const { info, voting, ratingHistory, convictions, politicalHistory } =
-    memberOverview;
+  const {
+    info,
+    voting,
+    ratingHistory,
+    convictions,
+    politicalHistory,
+    educationHistory,
+    recentActivities
+  } = memberOverview;
 
   return (
     <>
@@ -42,11 +45,11 @@ const MemberOverview = () => {
       </Row>
 
       <Row className="g-3 mb-3">
-        <Col xxl={6} className="order-2 order-lg-1 order-xxl-2">
+        <Col xxl={5} className="order-2 order-lg-1 order-xxl-2">
           <RecentActivities data={recentActivities} />
         </Col>
-        <Col xxl={6} className="order-xxl-1 order-lg-2 order-1">
-          <VotingHistory tableData={payments} />
+        <Col xxl={7} className="order-xxl-1 order-lg-2 order-1">
+          <EducationHistory tableData={educationHistory} />
         </Col>
       </Row>
 

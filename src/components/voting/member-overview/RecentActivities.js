@@ -43,7 +43,7 @@ const RecentActivities = ({ data }) => {
         className="py-2"
         endEl={<CardDropdown />}
       />
-      <SimpleBarReact style={{ height: '25rem' }} className="flex-1">
+      <SimpleBarReact style={{ height: '15rem' }} className="flex-1">
         <Card.Body className="py-0">
           <div className="timeline-simple">
             {data.map((activity, index) => (
