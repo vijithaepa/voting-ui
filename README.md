@@ -155,3 +155,34 @@ https://github.com/appleboy/ssh-action
 ---
 Get the figma design file here:
 [https://www.figma.com/file/RtbiVOzKdtq0cDsG4BELJn/Falcon-React-Distributed-(v3.9.0)](<https://www.figma.com/file/RtbiVOzKdtq0cDsG4BELJn/Falcon-React-Distributed-(v3.9.0)>)
+
+
+Member :
+title: select,
+name: text,
+lastUpdate: date/time,
+age: text,
+email: email,
+phoneNo: text,
+image: dropZonwe
+
+
+politicalHistory: Array
+from: Date,
+To: Date
+title: Select,
+Party: Select (name: colour)
+
+
+recentActivities: Array
+title: text
+description: text area,
+On: date,
+icon: text
+
+Education history: Array
+Qualification: text
+Institute: text
+date: date
+status: Select
+
