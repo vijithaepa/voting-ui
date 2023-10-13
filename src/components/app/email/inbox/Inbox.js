@@ -56,6 +56,7 @@ const InboxElement = () => {
     emailState: { emails, filters, currentFilter },
     emailDispatch
   } = useContext(EmailContext);
+
   const {
     paginationState: {
       data: paginatedEmails,

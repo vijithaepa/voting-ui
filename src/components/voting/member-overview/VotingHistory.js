@@ -76,7 +76,7 @@ const VotingHistory = ({ tableData, perPage = 5 }) => {
     >
       <Card className="h-100">
         <Card.Header className="d-flex flex-between-center">
-          <h5 className="mb-0 text-nowrap py-2 py-xl-0">Voting History</h5>
+          <h5 className="mb-0 text-nowrap py-2 py-xl-0">Education History</h5>
           <div>
             <IconButton
               variant="falcon-default"
