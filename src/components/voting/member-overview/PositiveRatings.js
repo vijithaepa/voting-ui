@@ -115,7 +115,7 @@ const PositiveRatings = ({ data }) => {
           <BasicECharts
             echarts={echarts}
             options={getOptions(votes)}
-            style={{ width: '11.5rem', height: 60 }}
+            style={{ width: '7.5rem', height: 60 }}
           />
         </div>
       </Card.Body>

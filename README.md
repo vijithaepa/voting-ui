@@ -109,6 +109,8 @@ sudo apt install nginx
 /etc/nginx/sites-available/default
 chmod +x <<to_build_folder>>
 sudo service nginx restart
+access_log /var/log/nginx/access.log;
+error_log /var/log/nginx/error.log;
 ```
 server {
 listen 80;
