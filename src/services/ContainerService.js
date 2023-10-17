@@ -11,20 +11,20 @@ export const getUserGreeting = () => {
         // }
       }
     )
-      .then(res => {
-        if (res.status === 200) {
-          console.log('response 200', res);
-          return ' : response 200';
-        } else {
-          console.log('response !200', res);
-          return ' : response !200';
-        }
-        // return res.text();
-      })
       // .then(res => {
-      //   console.log('Next response ', res);
-      //   return res;
+      //   if (res.status === 200) {
+      //     console.log('response 200', res);
+      //     return ' : response 200';
+      //   } else {
+      //     console.log('response !200', res);
+      //     return ' : response !200';
+      //   }
+      //   // return res.text();
       // })
+      .then(res => {
+        console.log('Next response ', res);
+        return res;
+      })
       .catch(error => {
         console.log('Error response ', error);
         return ' ERROR';
