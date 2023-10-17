@@ -8,6 +8,7 @@ const UserHome = () => {
     setGreeting('');
     getUserGreeting().then((res: string) => {
       // if (!ignore) {
+      console.log('Response ', res);
       setGreeting(res);
       // }
     });

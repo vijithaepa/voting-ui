@@ -23,7 +23,7 @@ export const getUserGreeting = () => {
       // })
       .then(res => {
         console.log('Next response ', res);
-        return res;
+        return res.text();
       })
       .catch(error => {
         console.log('Error response ', error);
