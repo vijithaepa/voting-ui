@@ -3,14 +3,11 @@
 export const getUserGreeting = () => {
   console.log('Service got called');
   return (
-    fetch(
-      'https://voting-lb-1587824177.ap-southeast-2.elb.amazonaws.com/voting/greeting',
-      {
-        method: 'GET'
-        // headers: {
-        // }
-      }
-    )
+    fetch(process.env.REACT_APP_BACKEND_RUL + '/voting/greeting', {
+      method: 'GET'
+      // headers: {
+      // }
+    })
       // .then(res => {
       //   if (res.status === 200) {
       //     console.log('response 200', res);

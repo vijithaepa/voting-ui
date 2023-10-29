@@ -155,7 +155,7 @@ export const memberOverview = {
       id: 0,
       title: 'Lost the seat',
       description: 'On parliamentary election',
-      date: '01/10/19',
+      time: '01/10/19',
       icon: 'sign-out-alt'
     },
     {

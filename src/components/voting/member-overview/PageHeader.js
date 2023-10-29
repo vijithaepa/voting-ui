@@ -20,7 +20,9 @@ const PageHeader = ({ info }) => {
     <Card className="mb-3">
       <Card.Body className="d-flex gap-2 flex-wrap flex-between-center">
         <div>
-          <h6 className="text-primary">{info.title}</h6>
+          <h6 className="text-primary">
+            {info.title} : {process.env.NODE_ENV}
+          </h6>
           <h5 className="mb-0">
             {info.name} {greeting}
           </h5>

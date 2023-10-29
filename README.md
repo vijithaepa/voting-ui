@@ -146,7 +146,7 @@ server 127.0.0.1:8080;
 }
 ```
 
-### reffer
+### refer
 https://www.youtube.com/watch?v=0Kn6mAYIRJU&t=394s
 
 https://github.com/appleboy/ssh-action
