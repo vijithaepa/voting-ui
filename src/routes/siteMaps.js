@@ -82,7 +82,7 @@ export const memberRoutes = {
         },
         {
           name: 'New',
-          to: '/e-learning/course/create-a-course',
+          to: '/voting/create-a-member',
           active: true,
           badge: {
             type: 'success',

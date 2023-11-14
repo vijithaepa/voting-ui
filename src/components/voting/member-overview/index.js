@@ -31,12 +31,12 @@ const MemberOverview = () => {
             <Col xs={12}>
               <MemberInfo info={info} />
             </Col>
-            <Col md={6}>
+            <Col md={12}>
               <PositiveRatings data={voting.positive} />
             </Col>
-            <Col md={6}>
-              <NegativeRatings data={voting.negative} />
-            </Col>
+            {/*<Col md={6}>*/}
+            {/*  <NegativeRatings data={voting.negative} />*/}
+            {/*</Col>*/}
           </Row>
         </Col>
         <Col xxl={6}>

@@ -198,6 +198,7 @@ import InputMaskExample from 'components/doc-components/InputMaskExample';
 import RangeSlider from 'components/doc-components/RangeSlider';
 import MemberOverview from '../components/voting/member-overview';
 import Members from '../components/voting/members/Members';
+import AddMember from "../components/voting/add-member/AddMember";
 
 const FalconRoutes = () => {
   return (
@@ -360,7 +361,7 @@ const FalconRoutes = () => {
         />
         <Route path="voting/member/:courseLayout" element={<Members />} />
         <Route path="voting/member-overview" element={<MemberOverview />} />
-
+        <Route path="voting/create-a-member" element={<AddMember />} />
         {/*icons*/}
         <Route path="icons/font-awesome" element={<FontAwesome />} />
         <Route path="icons/react-icons" element={<ReactIcons />} />
