@@ -5,10 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import MemberInfo from './MemberInfo';
 import MemberHeader from './MemberHeader';
-import MemberUpload from './MemberUpload';
 import MemberFooter from './MemberFooter';
-import MemberTags from './MemberTags';
 import PoliticalHistory from './PoliticalHistory';
+import MemberPhoto from './MemberPhoto';
 
 const schema = yup
   .object({
@@ -68,14 +67,15 @@ const AddMember = () => {
           <Col md={12}>
             <MemberHeader />
           </Col>
-          <Col lg={8}>
+          <Col xl={8} xxl={9}>
             <MemberInfo />
           </Col>
-          <Col lg={4}>
+          <Col xl={4} xxl={3}>
             <div className="sticky-sidebar">
               {/*<ProductType />*/}
-              <MemberUpload />
-              <MemberTags />
+              {/*<MemberUpload />*/}
+              <MemberPhoto />
+              {/*<MemberTags />*/}
             </div>
           </Col>
           <Col md={12}>
