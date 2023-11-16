@@ -3,7 +3,6 @@ import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
-import CustomDateInput from '../../common/CustomDateInput';
 import DatePicker from 'react-datepicker';
 
 const PoliticalHistory = () => {

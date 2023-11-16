@@ -21,7 +21,7 @@ const PersonalForm = (/*{ register, errors, setValue }*/) => {
         <Col md={12}>
           <h5 className="mb-2 mb-md-0">Add image</h5>
         </Col>
-        <Col md={12}>
+        <Col md={12} className="p-xl-6">
           <Avatar
             size="5xl"
             src={
