@@ -3,7 +3,6 @@ import { Col, Row } from 'react-bootstrap';
 import PageHeader from './PageHeader';
 import PositiveRatings from './PositiveRatings';
 import MemberInfo from './MemberInfo';
-import NegativeRatings from './NegativeRatings';
 import PoliticalHistory from './PoliticalHistory';
 import RatingHistory from './RatingHistory';
 import Convictions from './Convictions';
