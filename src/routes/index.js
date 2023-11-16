@@ -198,7 +198,7 @@ import InputMaskExample from 'components/doc-components/InputMaskExample';
 import RangeSlider from 'components/doc-components/RangeSlider';
 import MemberOverview from '../components/voting/member-overview';
 import Members from '../components/voting/members/Members';
-import AddMember from "../components/voting/add-member/AddMember";
+import AddMember from '../components/voting/add-member/AddMember';
 
 const FalconRoutes = () => {
   return (

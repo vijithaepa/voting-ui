@@ -1,15 +1,15 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import {getSize, isIterableArray} from 'helpers/utils';
-import {Button, Card, Col, Dropdown, Row} from 'react-bootstrap';
+import { getSize, isIterableArray } from 'helpers/utils';
+import { Button, Card, Col, Dropdown, Row } from 'react-bootstrap';
 import { useFormContext } from 'react-hook-form';
 import Flex from 'components/common/Flex';
 import cloudUpload from 'assets/img/icons/cloud-upload.svg';
 import CardDropdown from 'components/common/CardDropdown';
-import Avatar from "../../common/Avatar";
-import FalconDropzone from "../../common/FalconDropzone";
-import avatarImg from "../../../assets/img/team/avatar.png";
-import {AuthWizardContext} from "../../../context/Context";
+import Avatar from '../../common/Avatar';
+import FalconDropzone from '../../common/FalconDropzone';
+import avatarImg from '../../../assets/img/team/avatar.png';
+import { AuthWizardContext } from '../../../context/Context';
 
 const MemberUpload = () => {
   const { setValue } = useFormContext();
@@ -50,15 +50,19 @@ const MemberUpload = () => {
       <Card.Body>
         <Row className="mb-12">
           <Col>
-            <Flex justifyContent='center' className="align-self-center p-2 mb-2">
-              <div><Avatar
-              size="5xl"
-              src={
-                isIterableArray(avatar)
-                  ? avatar[0]?.base64 || avatar[0]?.src
-                  : ''
-              }
-            />
+            <Flex
+              justifyContent="center"
+              className="align-self-center p-2 mb-2"
+            >
+              <div>
+                <Avatar
+                  size="5xl"
+                  src={
+                    isIterableArray(avatar)
+                      ? avatar[0]?.base64 || avatar[0]?.src
+                      : ''
+                  }
+                />
               </div>
             </Flex>
           </Col>

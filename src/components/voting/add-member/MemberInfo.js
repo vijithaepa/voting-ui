@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Card, Col, Form, Row } from 'react-bootstrap';
 import { useFormContext } from 'react-hook-form';
-import DatePicker from "react-datepicker";
-import CustomDateInput from "../../common/CustomDateInput";
+import DatePicker from 'react-datepicker';
+import CustomDateInput from '../../common/CustomDateInput';
 
 const MemberInfo = () => {
   const {

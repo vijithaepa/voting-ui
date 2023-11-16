@@ -3,8 +3,8 @@ import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
-import CustomDateInput from "../../common/CustomDateInput";
-import DatePicker from "react-datepicker";
+import CustomDateInput from '../../common/CustomDateInput';
+import DatePicker from 'react-datepicker';
 
 const PoliticalHistory = () => {
   const { control } = useFormContext();
@@ -29,7 +29,9 @@ const PoliticalHistory = () => {
         {fields.map((history, index) => (
           <Row key={index} className="gx-2 flex-between-center mb-3">
             <Col sm={3}>
-              <h6 className="mb-0 text-600">{history.start.toLocaleDateString("en-AU")}</h6>
+              <h6 className="mb-0 text-600">
+                {history.start.toLocaleDateString('en-AU')}
+              </h6>
             </Col>
             <Col sm={3}>
               <h6 className="mb-0 text-600">{history.noOfYears}</h6>
@@ -59,13 +61,16 @@ const PoliticalHistory = () => {
           <Col sm={3}>
             <DatePicker
               selected={history.start}
-              onChange={(date)=> {
-                console.log('Selected Date ', date, date.toLocaleDateString("en-AU"))
-                setHistory({ ...history, start: date});
-              }
-                }
+              onChange={date => {
+                console.log(
+                  'Selected Date ',
+                  date,
+                  date.toLocaleDateString('en-AU')
+                );
+                setHistory({ ...history, start: date });
+              }}
               formatWeekDay={day => day.slice(0, 3)}
-              className='form-control'
+              className="form-control"
               placeholderText="Select Date"
             />
           </Col>
@@ -88,13 +93,9 @@ const PoliticalHistory = () => {
               name="specificationLabel"
               placeholder="Role"
               value={history.role}
-              onChange={e =>
-                setHistory({ ...history, role: e.target.value })
-              }
+              onChange={e => setHistory({ ...history, role: e.target.value })}
             />
           </Col>
-
-
 
           <Col sm={3}>
             <Flex
@@ -115,12 +116,12 @@ const PoliticalHistory = () => {
               {/*    })*/}
               {/*  }*/}
               {/*/>*/}
-              <Form.Select onChange={e => {
-                console.log('Selected ', e, e.target.value);
+              <Form.Select
+                onChange={e => {
+                  console.log('Selected ', e, e.target.value);
                   setHistory({ ...history, org: e.target.value });
-              }
-
-              }>
+                }}
+              >
                 <option value="">Organisation</option>
                 <option value="active">Active</option>
                 <option value="incative">Inactive</option>
@@ -131,21 +132,19 @@ const PoliticalHistory = () => {
                 size="sm"
                 className="me-2"
                 type="button"
-                disabled={
-                  history.start === '' || history.noOfYears === ''
-                }
+                disabled={history.start === '' || history.noOfYears === ''}
                 onClick={() => {
                   append({
                     start: history.start,
                     noOfYears: history.noOfYears,
                     role: history.role,
-                    org: history.org,
+                    org: history.org
                   });
                   setHistory({
                     start: null,
                     noOfYears: '',
                     role: '',
-                    org: '',
+                    org: ''
                   });
                 }}
               >
