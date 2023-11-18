@@ -1,0 +1,47 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Col, Form, Row } from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
+
+const DateInputField = ({ ...rest }) => {
+  return (
+    <DatePicker
+      // selected={date}
+      // onChange={date => setDate(date)}
+      className="form-control form-control-sm"
+      placeholderText="Select Date"
+      {...rest}
+    />
+  );
+};
+
+const InputField = ({ label, type = 'text', name, handleChange, ...rest }) => (
+  <Form.Group as={Row} className="mb-3" controlId={name}>
+    <Form.Label column sm={3} className="text-lg-end">
+      {label}
+    </Form.Label>
+    <Col sm={9} md={7}>
+      {type === 'date' ? (
+        <DateInputField {...rest} />
+      ) : (
+        <Form.Control
+          type={type}
+          placeholder={label}
+          size="sm"
+          name={name}
+          onChange={handleChange}
+          {...rest}
+        />
+      )}
+    </Col>
+  </Form.Group>
+);
+
+InputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  handleChange: PropTypes.func
+};
+
+export default InputField;

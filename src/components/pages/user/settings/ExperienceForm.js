@@ -58,7 +58,7 @@ const ExperienceForm = ({ collapsed, setCollapsed }) => {
               handleChange={handleChange}
             />
             <InputField
-              value={formData.position}
+              value={formData.city}
               label="City"
               name="city"
               handleChange={handleChange}

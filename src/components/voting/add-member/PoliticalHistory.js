@@ -57,15 +57,15 @@ const PoliticalHistory = () => {
         ))}
 
         <Row className="gy-3 gx-2">
-          <Col sm={3}>
+          <Col sm={3} xl={2} xxl={2}>
             <DatePicker
               selected={history.start}
               onChange={date => {
-                console.log(
-                  'Selected Date ',
-                  date,
-                  date.toLocaleDateString('en-AU')
-                );
+                // console.log(
+                //   'Selected Date ',
+                //   date,
+                //   date.toLocaleDateString('en-AU')
+                // );
                 setHistory({ ...history, start: date });
               }}
               formatWeekDay={day => day.slice(0, 3)}
@@ -96,7 +96,7 @@ const PoliticalHistory = () => {
             />
           </Col>
 
-          <Col sm={3}>
+          <Col sm={3} xl={4} xxl={4}>
             <Flex
               justifyContent="between"
               alignItems="center"

@@ -8,6 +8,7 @@ import MemberHeader from './MemberHeader';
 import MemberFooter from './MemberFooter';
 import PoliticalHistory from './PoliticalHistory';
 import MemberPhoto from './MemberPhoto';
+import Education from './Education';
 
 const schema = yup
   .object({
@@ -67,10 +68,10 @@ const AddMember = () => {
           <Col md={12}>
             <MemberHeader />
           </Col>
-          <Col xl={8} xxl={9}>
+          <Col md={8} xl={8} xxl={9}>
             <MemberInfo />
           </Col>
-          <Col xl={4} xxl={3}>
+          <Col md={4} xl={4} xxl={3}>
             <div className="sticky-sidebar">
               {/*<ProductType />*/}
               {/*<MemberUpload />*/}
@@ -80,7 +81,7 @@ const AddMember = () => {
           </Col>
           <Col md={12}>
             <PoliticalHistory />
-            {/*<ProductSpecifications />*/}
+            <Education />
             {/*<ProductSpecifications />*/}
             {/*<ProductSpecifications />*/}
             {/*<ProductSpecifications />*/}
