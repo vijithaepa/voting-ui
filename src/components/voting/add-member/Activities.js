@@ -5,61 +5,60 @@ import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
 import DatePicker from 'react-datepicker';
 
-const PoliticalHistory = () => {
+const Activities = () => {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'political'
+    name: 'activities'
   });
 
-  const [history, setHistory] = useState({
-    start: null,
-    noOfYears: '',
+  const [activity, setActivity] = useState({
+    date: null,
+    description: '',
     role: '',
-    org: ''
+    category: ''
   });
 
   return (
     <Card className="mb-lg-0 mt-3">
       <Card.Header as="h6" className="bg-light">
-        Political History
+        Activities
       </Card.Header>
       <Card.Body>
         <Row className="gy-3 gx-2">
+          <Col sm={2}>
+            <Form.Control
+              type="text"
+              size="sm"
+              name="roleLabel"
+              placeholder="Role"
+              value={activity.role}
+              onChange={e => setActivity({ ...activity, role: e.target.value })}
+            />
+          </Col>
+          <Col sm={4}>
+            <Form.Control
+              type="text"
+              size="sm"
+              name="descriptionLabel"
+              placeholder="Description"
+              value={activity.description}
+              onChange={e =>
+                setActivity({ ...activity, description: e.target.value })
+              }
+            />
+          </Col>
           <Col sm={3} xl={2} xxl={2}>
             <DatePicker
-              selected={history.start}
+              selected={activity.date}
               onChange={date => {
-                setHistory({ ...history, start: date });
+                setActivity({ ...activity, date: date });
               }}
               formatWeekDay={day => day.slice(0, 3)}
               className="form-control"
               placeholderText="Select Date"
             />
           </Col>
-          <Col sm={3}>
-            <Form.Control
-              type="text"
-              size="sm"
-              name="noOfYearsLabel"
-              placeholder="No Of Years"
-              value={history.noOfYears}
-              onChange={e =>
-                setHistory({ ...history, noOfYears: e.target.value })
-              }
-            />
-          </Col>
-          <Col sm={3}>
-            <Form.Control
-              type="text"
-              size="sm"
-              name="roleLabel"
-              placeholder="Role"
-              value={history.role}
-              onChange={e => setHistory({ ...history, role: e.target.value })}
-            />
-          </Col>
-
           <Col sm={3} xl={4} xxl={4}>
             <Flex
               justifyContent="between"
@@ -69,32 +68,33 @@ const PoliticalHistory = () => {
               <Form.Select
                 size="sm"
                 onChange={e => {
-                  setHistory({ ...history, org: e.target.value });
+                  setActivity({ ...activity, category: e.target.value });
                 }}
               >
-                <option value="">Party</option>
-                <option value="unp">UNP</option>
-                <option value="slp">SLP</option>
-                <option value="jvp">JVP</option>
+                <option value="">Category</option>
+                <option value="political">Political</option>
+                <option value="nonprofit">Non Profit</option>
+                <option value="ngo">NGO</option>
+                <option value="voluntary">Voluntary</option>
               </Form.Select>
               <Button
                 variant="falcon-default"
                 size="sm"
                 className="me-2"
                 type="button"
-                disabled={history.start === '' || history.noOfYears === ''}
+                disabled={activity.date === '' || activity.role === ''}
                 onClick={() => {
                   append({
-                    start: history.start,
-                    noOfYears: history.noOfYears,
-                    role: history.role,
-                    org: history.org
+                    date: activity.date,
+                    description: activity.description,
+                    role: activity.role,
+                    category: activity.category
                   });
-                  setHistory({
-                    start: null,
-                    noOfYears: '',
+                  setActivity({
+                    date: null,
+                    description: '',
                     role: '',
-                    org: ''
+                    category: ''
                   });
                 }}
               >
@@ -104,22 +104,22 @@ const PoliticalHistory = () => {
           </Col>
         </Row>
 
-        {fields.map((history, index) => (
+        {fields.map((activity, index) => (
           <Row key={index} className="gx-2 flex-between-center mt-3">
+            <Col sm={2}>
+              <h6 className="mb-0 text-600">{activity.role}</h6>
+            </Col>
+            <Col sm={4}>
+              <h6 className="mb-0 text-600">{activity.description}</h6>
+            </Col>
             <Col sm={3}>
               <h6 className="mb-0 text-600">
-                {history.start.toLocaleDateString('en-AU')}
+                {activity.date.toLocaleDateString('en-AU')}
               </h6>
             </Col>
             <Col sm={3}>
-              <h6 className="mb-0 text-600">{history.noOfYears}</h6>
-            </Col>
-            <Col sm={3}>
-              <h6 className="mb-0 text-600">{history.role}</h6>
-            </Col>
-            <Col sm={3}>
               <Flex justifyContent="between" alignItems="center">
-                <h6 className="mb-0 text-700">{history.org}</h6>
+                <h6 className="mb-0 text-700">{activity.category}</h6>
                 <Button
                   variant="link"
                   to="#!"
@@ -139,4 +139,4 @@ const PoliticalHistory = () => {
   );
 };
 
-export default PoliticalHistory;
+export default Activities;

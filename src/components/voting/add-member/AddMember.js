@@ -9,6 +9,7 @@ import MemberFooter from './MemberFooter';
 import PoliticalHistory from './PoliticalHistory';
 import MemberPhoto from './MemberPhoto';
 import Education from './Education';
+import Activities from './Activities';
 
 const schema = yup
   .object({
@@ -82,7 +83,7 @@ const AddMember = () => {
           <Col md={12}>
             <PoliticalHistory />
             <Education />
-            {/*<ProductSpecifications />*/}
+            <Activities />
             {/*<ProductSpecifications />*/}
             {/*<ProductSpecifications />*/}
           </Col>
