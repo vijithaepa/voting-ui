@@ -1,5 +1,3 @@
-// class ContainerService {
-
 export const getUserGreeting = () => {
   console.log('Service got called');
   return (
@@ -28,6 +26,15 @@ export const getUserGreeting = () => {
       })
   );
 };
-// }
 
-// export default new ContainerService();
+export const saveMember = member => {
+  const memberBody = JSON.stringify(member);
+  console.log('Member before sent', member, memberBody);
+  return fetch(process.env.REACT_APP_BACKEND_RUL + '/voting/member', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: memberBody
+  }).then(result => {
+    console.log('result', result);
+  });
+};

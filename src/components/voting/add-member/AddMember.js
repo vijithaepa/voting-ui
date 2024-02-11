@@ -10,54 +10,49 @@ import PoliticalHistory from './PoliticalHistory';
 import MemberPhoto from './MemberPhoto';
 import Education from './Education';
 import Activities from './Activities';
+import { saveMember } from '../../../services/ContainerService';
 
 const schema = yup
   .object({
-    productName: yup.string().required('This field is required.'),
-    manufacturarName: yup.string().required('This field is required.'),
-    identificationNumber: yup.string().required('This field is required.'),
-    productSummery: yup.string().required('This field is required.'),
-    importStatus: yup.string().required('This field is required.'),
-    countryOrigin: yup.string().required('This field is required.'),
-    productCategory: yup.string().required('This field is required.'),
-    productSubCategory: yup.string().required('This field is required.'),
-    regularPrice: yup
-      .number()
-      .transform(value => (Number.isNaN(value) ? null : value))
-      .nullable()
-      .required('This field is required.')
+    title: yup.string().required('This field is required.'),
+    fullName: yup.string().required('This field is required.')
+    // manufacturarName: yup.string().required('This field is required.'),
+    // identificationNumber: yup.string().required('This field is required.'),
+    // productSummery: yup.string().required('This field is required.'),
+    // importStatus: yup.string().required('This field is required.'),
+    // countryOrigin: yup.string().required('This field is required.'),
+    // productCategory: yup.string().required('This field is required.'),
+    // productSubCategory: yup.string().required('This field is required.'),
+    // regularPrice: yup
+    //   .number()
+    //   .transform(value => (Number.isNaN(value) ? null : value))
+    //   .nullable()
+    //   .required('This field is required.')
   })
   .required();
 
 const AddMember = () => {
   const submittedValues = {};
   const methods = useForm({
-    resolver: yupResolver(schema)
-    // defaultValues: {
-    //   specifications: [
-    //     {
-    //       label: 'Processor',
-    //       property: '2.3GHz quad-core Intel Core i5'
-    //     },
-    //     {
-    //       label: 'Memory',
-    //       property: '8GB of 2133MHz LPDDR3 onboard memory'
-    //     },
-    //     {
-    //       label: 'Brand name',
-    //       property: 'Apple'
-    //     }
-    //   ]
-    // }
+    resolver: yupResolver(schema),
+    defaultValues: {
+      political: [],
+      education: [],
+      activities: []
+    }
   });
   const { handleSubmit, reset } = methods;
 
   const onSubmit = data => {
-    console.log(data);
+    console.log('Form data', data);
+    saveMember(data).then(res => console.log('Member saved', res));
     // ------- Get all object keys form data and set empty values to reset ------------
     const keys = Object.keys(data);
     for (const key of keys) {
-      submittedValues[key] = '';
+      submittedValues[key] =
+        key === 'political' || key === 'education' || key === 'activities'
+          ? []
+          : '';
     }
     reset({ ...submittedValues });
   };

@@ -59,7 +59,6 @@ const Education = () => {
           label="From"
           name="from"
           onChange={value => {
-            console.log('From date', value);
             setFormData({ ...formData, from: value });
           }}
         />
@@ -100,10 +99,10 @@ const Education = () => {
               className="me-2"
               type="button"
               disabled={
-                formData.institution === '' ||
-                formData.qualification === '' ||
-                formData.from === '' ||
-                formData.to === ''
+                !formData.institution ||
+                !formData.qualification ||
+                !formData.from ||
+                !formData.to
               }
               onClick={() => {
                 append({
