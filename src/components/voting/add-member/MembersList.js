@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Dropdown, Form, Row } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useFormContext, useFieldArray } from 'react-hook-form';
-import Flex from 'components/common/Flex';
-import DatePicker from 'react-datepicker';
-import { timezones } from '../../../data/events/timezones';
+import { Card, Col, Row } from 'react-bootstrap';
 import AdvanceTableSearchBox from '../../common/advance-table/AdvanceTableSearchBox';
 import AdvanceTable from '../../common/advance-table/AdvanceTable';
 import AdvanceTableFooter from '../../common/advance-table/AdvanceTableFooter';
 import AdvanceTableWrapper from '../../common/advance-table/AdvanceTableWrapper';
-import CardDropdown from '../../common/CardDropdown';
 import ActionButton from '../../common/ActionButton';
+import PropTypes from 'prop-types';
 
 const MembersList = ({ members }) => {
   console.log('members ', members);
@@ -116,4 +111,7 @@ const MembersList = ({ members }) => {
   );
 };
 
+MembersList.propTypes = {
+  members: PropTypes.array
+};
 export default MembersList;

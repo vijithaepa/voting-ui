@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
 import DatePicker from 'react-datepicker';
-import { timezones } from '../../../data/events/timezones';
+import PropTypes from 'prop-types';
 
-const PoliticalHistory = props => {
-  const parties = props.parties;
+const PoliticalHistory = ({ parties }) => {
+  console.log('PoliticalHistory ', parties);
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
@@ -20,8 +20,6 @@ const PoliticalHistory = props => {
     role: '',
     org: ''
   });
-
-  console.log('Parties ', parties, parties[0]);
 
   return (
     <Card className="mb-lg-0 mt-3">
@@ -142,6 +140,10 @@ const PoliticalHistory = props => {
       </Card.Body>
     </Card>
   );
+};
+
+PoliticalHistory.propTypes = {
+  parties: PropTypes.array
 };
 
 export default PoliticalHistory;

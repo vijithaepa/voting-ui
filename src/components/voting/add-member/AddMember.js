@@ -15,10 +15,6 @@ import {
   getMembers,
   saveMember
 } from '../../../services/ContainerService';
-import AdvanceTableWrapper from '../../common/advance-table/AdvanceTableWrapper';
-import AdvanceTable from '../../common/advance-table/AdvanceTable';
-import AdvanceTableSearchBox from '../../common/advance-table/AdvanceTableSearchBox';
-import AdvanceTableFooter from '../../common/advance-table/AdvanceTableFooter';
 import MembersList from './MembersList';
 
 const schema = yup
