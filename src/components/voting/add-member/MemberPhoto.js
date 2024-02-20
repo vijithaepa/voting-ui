@@ -24,6 +24,7 @@ const PersonalForm = (/*{ register, errors, setValue }*/) => {
         <Col md={12} className="px-9 px-md-7 px-xl-7">
           <Avatar
             size="5xl"
+            rounded="soft"
             src={
               isIterableArray(avatar) ? avatar[0]?.base64 || avatar[0]?.src : ''
             }

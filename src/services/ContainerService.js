@@ -38,3 +38,21 @@ export const saveMember = member => {
     console.log('result', result);
   });
 };
+
+export const getMemberConfig = () => {
+  return fetch(process.env.REACT_APP_BACKEND_RUL + '/voting/member/config', {
+    method: 'GET'
+  }).then(result => {
+    console.log('result', result);
+    return result.json();
+  });
+};
+
+export const getMembers = () => {
+  return fetch(process.env.REACT_APP_BACKEND_RUL + '/voting/member', {
+    method: 'GET'
+  }).then(result => {
+    console.log('get member result', result);
+    return result.json();
+  });
+};

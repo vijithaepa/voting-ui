@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
 import DatePicker from 'react-datepicker';
+import { timezones } from '../../../data/events/timezones';
 
-const PoliticalHistory = () => {
+const PoliticalHistory = props => {
+  const parties = props.parties;
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
@@ -18,6 +20,8 @@ const PoliticalHistory = () => {
     role: '',
     org: ''
   });
+
+  console.log('Parties ', parties, parties[0]);
 
   return (
     <Card className="mb-lg-0 mt-3">
@@ -72,10 +76,11 @@ const PoliticalHistory = () => {
                   setHistory({ ...history, org: e.target.value });
                 }}
               >
-                <option value="">Party</option>
-                <option value="unp">UNP</option>
-                <option value="slp">SLP</option>
-                <option value="jvp">JVP</option>
+                {parties[0].map(item => (
+                  <option value={item.id} key={item.id}>
+                    {item.shortName}
+                  </option>
+                ))}
               </Form.Select>
               <Button
                 variant="falcon-default"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,7 +10,16 @@ import PoliticalHistory from './PoliticalHistory';
 import MemberPhoto from './MemberPhoto';
 import Education from './Education';
 import Activities from './Activities';
-import { saveMember } from '../../../services/ContainerService';
+import {
+  getMemberConfig,
+  getMembers,
+  saveMember
+} from '../../../services/ContainerService';
+import AdvanceTableWrapper from '../../common/advance-table/AdvanceTableWrapper';
+import AdvanceTable from '../../common/advance-table/AdvanceTable';
+import AdvanceTableSearchBox from '../../common/advance-table/AdvanceTableSearchBox';
+import AdvanceTableFooter from '../../common/advance-table/AdvanceTableFooter';
+import MembersList from './MembersList';
 
 const schema = yup
   .object({
@@ -41,7 +50,15 @@ const AddMember = () => {
       activities: []
     }
   });
+
   const { handleSubmit, reset } = methods;
+  const [config, setConfig] = useState({ organasations: [] });
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    getMembers().then(members => setMembers(members));
+    getMemberConfig().then(config => setConfig(config));
+  }, []);
 
   const onSubmit = data => {
     console.log('Form data', data);
@@ -56,6 +73,8 @@ const AddMember = () => {
     }
     reset({ ...submittedValues });
   };
+
+  console.log('Add Member Main page ', config, members);
 
   return (
     <FormProvider {...methods}>
@@ -76,7 +95,7 @@ const AddMember = () => {
             </div>
           </Col>
           <Col md={12}>
-            <PoliticalHistory />
+            <PoliticalHistory parties={[config.organasations]} />
             <Education />
             <Activities />
             {/*<ProductSpecifications />*/}
@@ -87,6 +106,7 @@ const AddMember = () => {
           </Col>
         </Row>
       </Form>
+      <MembersList members={members} />
     </FormProvider>
   );
 };
