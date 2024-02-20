@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import AdvanceTableSearchBox from '../../common/advance-table/AdvanceTableSearchBox';
 import AdvanceTable from '../../common/advance-table/AdvanceTable';
