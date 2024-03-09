@@ -5,7 +5,7 @@ import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
 import DatePicker from 'react-datepicker';
 
-const Activities = () => {
+const Activities = ({ categories }) => {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
@@ -71,11 +71,12 @@ const Activities = () => {
                   setActivity({ ...activity, category: e.target.value });
                 }}
               >
-                <option value="">Category</option>
-                <option value="political">Political</option>
-                <option value="nonprofit">Non Profit</option>
-                <option value="ngo">NGO</option>
-                <option value="voluntary">Voluntary</option>
+                {categories &&
+                  Object.keys(categories).map((key, index) => (
+                    <option key={index} value={key}>
+                      {categories[key]}
+                    </option>
+                  ))}
               </Form.Select>
               <Button
                 variant="falcon-default"

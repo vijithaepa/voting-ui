@@ -80,7 +80,7 @@ const AddMember = () => {
             <MemberHeader />
           </Col>
           <Col md={8} xl={8} xxl={9}>
-            <MemberInfo />
+            <MemberInfo userStatus={config.userStatus} />
           </Col>
           <Col md={4} xl={4} xxl={3}>
             <div className="sticky-sidebar">
@@ -92,8 +92,8 @@ const AddMember = () => {
           </Col>
           <Col md={12}>
             <PoliticalHistory parties={[config.organasations]} />
-            <Education />
-            <Activities />
+            <Education status={config.qualificationStatus} />
+            <Activities categories={config.activityCategories} />
             {/*<ProductSpecifications />*/}
             {/*<ProductSpecifications />*/}
           </Col>

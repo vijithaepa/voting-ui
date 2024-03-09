@@ -15,7 +15,7 @@ const MembersList = ({ members }) => {
     ? members.map(m => ({
         title: m.title,
         fullName: m.fullName,
-        age: m.dateOfBirth
+        age: new Date(m.dateOfBirth).toLocaleString('en-AU')
       }))
     : [];
 

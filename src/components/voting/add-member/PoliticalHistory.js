@@ -7,7 +7,6 @@ import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
 
 const PoliticalHistory = ({ parties }) => {
-  console.log('PoliticalHistory ', parties);
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,

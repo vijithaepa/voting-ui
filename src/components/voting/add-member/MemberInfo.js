@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { Card, Col, Form, Row } from 'react-bootstrap';
 import { useFormContext } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
-import CustomDateInput from '../../common/CustomDateInput';
+import PropTypes from 'prop-types';
 
-const MemberInfo = () => {
+const MemberInfo = ({ userStatus }) => {
   const {
     register,
     setValue,
     formState: { errors }
   } = useFormContext();
 
+  const [selectedOption, setSelectedOption] = useState(null);
   const [formData, setFormData] = useState({
     dateOfBirth: null
   });
@@ -22,6 +23,18 @@ const MemberInfo = () => {
     });
   };
 
+  console.log(
+    'Member Info ',
+    userStatus,
+    userStatus ? Object.keys(userStatus) : ''
+  );
+
+  const getMemberStatusOptions = () => {
+    return [];
+    // return userStatus?
+    //   Object.keys(userStatus).map(key=> {'value': key, 'lebel': userStatus[key]}))
+    //   :[];
+  };
   return (
     <Card className="mb-3">
       <Card.Header as="h6" className="bg-light">
@@ -93,13 +106,14 @@ const MemberInfo = () => {
                     handleChange('dateOfBirth', newDate);
                     setValue('dateOfBirth', newDate);
                   }}
-                  customInput={
-                    <CustomDateInput
-                      formControlProps={{
-                        ...register('dateOfBirth')
-                      }}
-                    />
-                  }
+                  dateFormat="dd-MM-yyyy"
+                  // customInput={
+                  //   <CustomDateInput
+                  //     formControlProps={{
+                  //       ...register('dateOfBirth')
+                  //     }}
+                  //   />
+                  // }
                 />
               </Col>
             </Form.Group>
@@ -144,14 +158,31 @@ const MemberInfo = () => {
                 Status:
               </Form.Label>
               <Col xl="9" xxl="10">
+                {/*<Select*/}
+                {/*  closeMenuOnSelect={true}*/}
+                {/*  // options={getMemberStatusOptions()}*/}
+                {/*  placeholder='Select...'*/}
+                {/*  classNamePrefix="react-select"*/}
+                {/*  value={selectedOption}*/}
+                {/*  onChange={setSelectedOption}*/}
+                {/*>*/}
+                {/*  {userStatus && Object.keys(userStatus).map((key, index) =>*/}
+                {/*    <option key={index} value={userStatus[key]}>*/}
+                {/*      {userStatus[key]} 1*/}
+                {/*    </option>*/}
+                {/*  )}*/}
+                {/*</Select>*/}
+
                 <Form.Select
                   {...register(`memberStatus`)}
                   isInvalid={!!errors.memberStatus}
                 >
-                  <option value="">Select</option>
-                  <option value="active">Active</option>
-                  <option value="incative">Inactive</option>
-                  <option value="draft">Draft</option>
+                  {userStatus &&
+                    Object.keys(userStatus).map((key, index) => (
+                      <option key={index} value={key}>
+                        {userStatus[key]}
+                      </option>
+                    ))}
                 </Form.Select>
                 <Form.Control.Feedback type="invalid">
                   {errors.memberStatus?.message}
@@ -163,6 +194,10 @@ const MemberInfo = () => {
       </Card.Body>
     </Card>
   );
+};
+
+MemberInfo.propTypes = {
+  userStatus: PropTypes.object
 };
 
 export default MemberInfo;

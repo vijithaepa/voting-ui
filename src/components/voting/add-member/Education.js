@@ -5,7 +5,7 @@ import Flex from '../../common/Flex';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 
-const Education = () => {
+const Education = ({ status }) => {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
@@ -26,6 +26,8 @@ const Education = () => {
       [e.target.name]: e.target.value
     });
   };
+
+  console.log('Education status', status);
 
   return (
     <Card className="mb-lg-0 mt-3">
@@ -84,9 +86,12 @@ const Education = () => {
               }
               value={formData.status}
             >
-              <option value="active">Active</option>
-              <option value="inacative">Inactive</option>
-              <option value="draft">Draft</option>
+              {status &&
+                Object.keys(status).map((key, index) => (
+                  <option key={index} value={key}>
+                    {status[key]}
+                  </option>
+                ))}
             </Form.Select>
           </Col>
         </Form.Group>
