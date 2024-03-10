@@ -11,7 +11,6 @@ const MemberInfo = ({ userStatus }) => {
     formState: { errors }
   } = useFormContext();
 
-  const [selectedOption, setSelectedOption] = useState(null);
   const [formData, setFormData] = useState({
     dateOfBirth: null
   });
@@ -29,12 +28,6 @@ const MemberInfo = ({ userStatus }) => {
     userStatus ? Object.keys(userStatus) : ''
   );
 
-  const getMemberStatusOptions = () => {
-    return [];
-    // return userStatus?
-    //   Object.keys(userStatus).map(key=> {'value': key, 'lebel': userStatus[key]}))
-    //   :[];
-  };
   return (
     <Card className="mb-3">
       <Card.Header as="h6" className="bg-light">

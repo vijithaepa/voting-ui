@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormContext, useFieldArray } from 'react-hook-form';
 import Flex from 'components/common/Flex';
 import DatePicker from 'react-datepicker';
+import PropTypes from 'prop-types';
+import MemberInfo from './MemberInfo';
 
 const Activities = ({ categories }) => {
   const { control } = useFormContext();
@@ -138,6 +140,10 @@ const Activities = ({ categories }) => {
       </Card.Body>
     </Card>
   );
+};
+
+Activities.propTypes = {
+  categories: PropTypes.object
 };
 
 export default Activities;
