@@ -4,7 +4,6 @@ import InputField from '../InputField';
 import Flex from '../../common/Flex';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import MemberInfo from './MemberInfo';
 import PropTypes from 'prop-types';
 
 const Education = ({ status }) => {
@@ -174,7 +173,7 @@ const Education = ({ status }) => {
 };
 
 Education.propTypes = {
-  categories: PropTypes.object
+  status: PropTypes.object
 };
 
 export default Education;
