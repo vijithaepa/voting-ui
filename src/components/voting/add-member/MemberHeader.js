@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Col, Button, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import MemberInfo from './MemberInfo';
 
 const MemberHeader = ({ onCancel }) => {
   return (
