@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card, Col, Button, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import MemberInfo from './MemberInfo';
 
-const MemberHeader = () => {
+const MemberHeader = ({ onCancel }) => {
   return (
     <Card>
       <Card.Body>
@@ -14,6 +16,7 @@ const MemberHeader = () => {
               variant="link"
               className="text-secondary fw-medium p-0 me-3"
               type="button"
+              onClick={onCancel}
             >
               Discard
             </Button>
@@ -25,6 +28,10 @@ const MemberHeader = () => {
       </Card.Body>
     </Card>
   );
+};
+
+MemberHeader.propTypes = {
+  onCancel: PropTypes.func
 };
 
 export default MemberHeader;

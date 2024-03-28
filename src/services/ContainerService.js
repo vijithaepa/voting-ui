@@ -48,6 +48,18 @@ export const getMemberConfig = () => {
   });
 };
 
+export const getOrganisations = () => {
+  return fetch(
+    process.env.REACT_APP_BACKEND_RUL + '/voting/member/organisations',
+    {
+      method: 'GET'
+    }
+  ).then(result => {
+    console.log('Organisations ', result);
+    return result.json();
+  });
+};
+
 export const getMembers = () => {
   return fetch(process.env.REACT_APP_BACKEND_RUL + '/voting/member', {
     method: 'GET'

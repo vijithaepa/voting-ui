@@ -13,6 +13,7 @@ import Activities from './Activities';
 import {
   getMemberConfig,
   getMembers,
+  getOrganisations,
   saveMember
 } from '../../../services/ContainerService';
 import MembersList from './MembersList';
@@ -48,7 +49,7 @@ const AddMember = () => {
   });
 
   const { handleSubmit, reset } = methods;
-  const [config, setConfig] = useState({ organasations: [] });
+  const [config, setConfig] = useState({ organisations: [] });
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
@@ -70,6 +71,10 @@ const AddMember = () => {
     reset({ ...submittedValues });
   };
 
+  const onCancel = () => {
+    getOrganisations().then(orgs => console.log('organisations ', orgs));
+  };
+
   console.log('Add Member Main page ', config, members);
 
   return (
@@ -77,7 +82,7 @@ const AddMember = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row className="g-3">
           <Col md={12}>
-            <MemberHeader />
+            <MemberHeader onCancel={onCancel} />
           </Col>
           <Col md={8} xl={8} xxl={9}>
             <MemberInfo userStatus={config.userStatus} />
@@ -91,7 +96,7 @@ const AddMember = () => {
             </div>
           </Col>
           <Col md={12}>
-            <PoliticalHistory parties={[config.organasations]} />
+            <PoliticalHistory parties={[config.organisations]} />
             <Education status={config.qualificationStatus} />
             <Activities categories={config.activityCategories} />
             {/*<ProductSpecifications />*/}
